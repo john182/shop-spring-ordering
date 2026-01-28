@@ -11,7 +11,7 @@ import java.util.UUID;
 import static com.shop.ordering.domain.model.exception.ErrorMessages.*;
 
 
-public class Customer {
+public class Customer implements AggregateRoot<CustomerId> {
     private CustomerId id;
     private FullName fullName;
     private BirthDate birthDate;
@@ -26,9 +26,9 @@ public class Customer {
     private Address address;
 
     @Builder(builderClassName = "BrandNewCustomerBuild", builderMethodName = "brandNew")
-    private static Customer brandNew(FullName fullName, BirthDate birthDate, Email email,
-                                    Phone phone, Document document, Boolean promotionNotificationsAllowed,
-                                    Address address) {
+    private static Customer createBrandNew(FullName fullName, BirthDate birthDate, Email email,
+                                           Phone phone, Document document, Boolean promotionNotificationsAllowed,
+                                           Address address) {
         return new Customer(new CustomerId(),
                 fullName,
                 birthDate,
@@ -44,27 +44,6 @@ public class Customer {
     }
 
     @Builder(builderClassName = "ExistingCustomerBuild", builderMethodName = "existing")
-    private static Customer existing(CustomerId id, FullName fullName, BirthDate birthDate, Email email, Phone phone,
-                                    Document document, Boolean promotionNotificationsAllowed, Boolean archived,
-                                    OffsetDateTime registeredAt, OffsetDateTime archivedAt,
-                                    LoyaltyPoints loyaltyPoints, Address address) {
-        return new Customer(
-                id,
-                fullName,
-                birthDate,
-                email,
-                phone,
-                document,
-                promotionNotificationsAllowed,
-                archived,
-                registeredAt,
-                archivedAt,
-                loyaltyPoints,
-                address
-        );
-
-    }
-
     private Customer(CustomerId id, FullName fullName, BirthDate birthDate, Email email, Phone phone,
                      Document document, Boolean promotionNotificationsAllowed, Boolean archived,
                      OffsetDateTime registeredAt, OffsetDateTime archivedAt, LoyaltyPoints loyaltyPoints, Address address) {
