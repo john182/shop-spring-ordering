@@ -1,18 +1,27 @@
 package com.shop.ordering.domain.model.valueobject.id;
 
 import com.shop.ordering.domain.model.utility.IdGenerator;
+import io.hypersistence.tsid.TSID;
 
 import java.util.Objects;
 import java.util.UUID;
 
-public record OrderId(UUID value) {
+public record OrderId(TSID value) {
 
     public OrderId {
         Objects.requireNonNull(value);
     }
 
     public OrderId() {
-        this(IdGenerator.generateTimeBasedUUID());
+        this(IdGenerator.generateTSID());
+    }
+
+    public OrderId(Long value) {
+        this(TSID.from(value));
+    }
+
+    public OrderId(String value) {
+        this(TSID.from(value));
     }
 
     @Override
