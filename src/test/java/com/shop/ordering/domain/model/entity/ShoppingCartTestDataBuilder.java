@@ -1,8 +1,9 @@
 package com.shop.ordering.domain.model.entity;
 
-import com.shop.ordering.domain.model.valueobject.Quantity;
-import com.shop.ordering.domain.model.valueobject.id.CustomerId;
-import com.shop.ordering.domain.model.valueobject.id.ShoppingCartId;
+import com.shop.ordering.domain.model.commons.Quantity;
+import com.shop.ordering.domain.model.customer.CustomerId;
+import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
+import com.shop.ordering.domain.model.shoppingcart.ShoppingCartId;
 
 public class ShoppingCartTestDataBuilder {
 

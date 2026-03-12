@@ -1,7 +1,9 @@
 package com.shop.ordering.domain.model.service;
 
-import com.shop.ordering.domain.model.entity.Customer;
-import com.shop.ordering.domain.model.valueobject.*;
+import com.shop.ordering.domain.model.commons.*;
+import com.shop.ordering.domain.model.customer.BirthDate;
+import com.shop.ordering.domain.model.customer.Customer;
+import com.shop.ordering.domain.model.customer.CustomerRegistrationService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

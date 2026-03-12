@@ -1,8 +1,9 @@
 package com.shop.ordering.domain.model.service;
 
-import com.shop.ordering.domain.model.valueobject.ZipCode;
+import com.shop.ordering.domain.model.commons.ZipCode;
+import com.shop.ordering.domain.model.order.shipping.OriginAddressService;
+import com.shop.ordering.domain.model.order.shipping.ShippingCostService;
 import org.assertj.core.api.Assertions;
-import org.assertj.core.api.Assumptions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

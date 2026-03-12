@@ -1,9 +1,9 @@
 package com.shop.ordering.domain.model.entity;
 
-import com.shop.ordering.domain.model.valueobject.Money;
-import com.shop.ordering.domain.model.valueobject.Product;
-import com.shop.ordering.domain.model.valueobject.ProductName;
-import com.shop.ordering.domain.model.valueobject.id.ProductId;
+import com.shop.ordering.domain.model.commons.Money;
+import com.shop.ordering.domain.model.product.Product;
+import com.shop.ordering.domain.model.product.ProductName;
+import com.shop.ordering.domain.model.product.ProductId;
 
 public class ProductTestDataBuilder {
 

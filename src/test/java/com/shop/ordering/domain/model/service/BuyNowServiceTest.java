@@ -1,12 +1,13 @@
 package com.shop.ordering.domain.model.service;
 
-import com.shop.ordering.domain.model.entity.Order;
+import com.shop.ordering.domain.model.commons.Money;
+import com.shop.ordering.domain.model.commons.Quantity;
+import com.shop.ordering.domain.model.order.*;
 import com.shop.ordering.domain.model.entity.OrderTestDataBuilder;
-import com.shop.ordering.domain.model.entity.PaymentMethod;
 import com.shop.ordering.domain.model.entity.ProductTestDataBuilder;
-import com.shop.ordering.domain.model.exception.ProductOutOfStockException;
-import com.shop.ordering.domain.model.valueobject.*;
-import com.shop.ordering.domain.model.valueobject.id.CustomerId;
+import com.shop.ordering.domain.model.product.ProductOutOfStockException;
+import com.shop.ordering.domain.model.product.Product;
+import com.shop.ordering.domain.model.customer.CustomerId;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

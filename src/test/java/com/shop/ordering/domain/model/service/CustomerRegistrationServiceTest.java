@@ -1,9 +1,7 @@
 package com.shop.ordering.domain.model.service;
 
-import com.shop.ordering.domain.model.entity.Customer;
-import com.shop.ordering.domain.model.repository.Customers;
-import com.shop.ordering.domain.model.valueobject.*;
-import com.shop.ordering.domain.model.valueobject.id.CustomerId;
+import com.shop.ordering.domain.model.commons.*;
+import com.shop.ordering.domain.model.customer.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,8 +1,12 @@
 package com.shop.ordering.domain.model.service;
 
+import com.shop.ordering.domain.model.commons.Money;
+import com.shop.ordering.domain.model.commons.Quantity;
 import com.shop.ordering.domain.model.entity.*;
-import com.shop.ordering.domain.model.exception.ShoppingCartCantProceedToCheckoutException;
-import com.shop.ordering.domain.model.valueobject.*;
+import com.shop.ordering.domain.model.shoppingcart.ShoppingCartCantProceedToCheckoutException;
+import com.shop.ordering.domain.model.order.*;
+import com.shop.ordering.domain.model.product.Product;
+import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

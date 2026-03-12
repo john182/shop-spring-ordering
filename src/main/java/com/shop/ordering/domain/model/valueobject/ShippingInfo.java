@@ -1,5 +1,9 @@
 package com.shop.ordering.domain.model.valueobject;
 
+import com.shop.ordering.domain.model.commons.Address;
+import com.shop.ordering.domain.model.commons.Document;
+import com.shop.ordering.domain.model.commons.FullName;
+import com.shop.ordering.domain.model.commons.Phone;
 import lombok.Builder;
 
 import java.util.Objects;

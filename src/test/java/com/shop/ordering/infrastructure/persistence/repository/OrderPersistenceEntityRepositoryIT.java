@@ -3,10 +3,11 @@ package com.shop.ordering.infrastructure.persistence.repository;
 import com.shop.ordering.domain.model.entity.CustomerPersistenceEntityTestDataBuilder;
 import com.shop.ordering.domain.model.entity.CustomerTestDataBuilder;
 import com.shop.ordering.domain.model.entity.OrderPersistenceEntityTestDataBuilder;
-import com.shop.ordering.domain.model.utility.IdGenerator;
-import com.shop.ordering.infrastructure.persistence.config.SpringDataAuditingConfig;
-import com.shop.ordering.infrastructure.persistence.entity.CustomerPersistenceEntity;
-import com.shop.ordering.infrastructure.persistence.entity.OrderPersistenceEntity;
+import com.shop.ordering.infrastructure.persistence.SpringDataAuditingConfig;
+import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
+import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntity;
+import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,8 +16,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @DataJpaTest

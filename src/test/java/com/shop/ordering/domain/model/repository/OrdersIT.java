@@ -1,12 +1,12 @@
 package com.shop.ordering.domain.model.repository;
 
-import com.shop.ordering.domain.model.entity.Order;
+import com.shop.ordering.domain.model.order.Order;
 import com.shop.ordering.domain.model.entity.OrderTestDataBuilder;
-import com.shop.ordering.domain.model.valueobject.id.OrderId;
-import com.shop.ordering.infrastructure.persistence.assembler.OrderPersistenceEntityAssembler;
-import com.shop.ordering.infrastructure.persistence.disassembler.OrderPersistenceEntityDisassembler;
-import com.shop.ordering.infrastructure.persistence.provider.OrdersPersistenceProvider;
-import org.assertj.core.api.Assertions;
+import com.shop.ordering.domain.model.order.Orders;
+import com.shop.ordering.domain.model.order.OrderId;
+import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityAssembler;
+import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityDisassembler;
+import com.shop.ordering.infrastructure.persistence.order.OrdersPersistenceProvider;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

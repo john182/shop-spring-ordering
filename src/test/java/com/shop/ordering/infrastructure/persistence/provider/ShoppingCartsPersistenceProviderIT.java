@@ -1,16 +1,18 @@
 package com.shop.ordering.infrastructure.persistence.provider;
 
-import com.shop.ordering.domain.model.entity.Customer;
+import com.shop.ordering.domain.model.customer.Customer;
 import com.shop.ordering.domain.model.entity.CustomerTestDataBuilder;
-import com.shop.ordering.domain.model.entity.ShoppingCart;
+import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
 import com.shop.ordering.domain.model.entity.ShoppingCartTestDataBuilder;
-import com.shop.ordering.domain.model.valueobject.id.CustomerId;
-import com.shop.ordering.infrastructure.persistence.assembler.CustomerPersistenceEntityAssembler;
-import com.shop.ordering.infrastructure.persistence.assembler.ShoppingCartPersistenceEntityAssembler;
-import com.shop.ordering.infrastructure.persistence.config.SpringDataAuditingConfig;
-import com.shop.ordering.infrastructure.persistence.disassembler.CustomerPersistenceEntityDisassembler;
-import com.shop.ordering.infrastructure.persistence.disassembler.ShoppingCartPersistenceEntityDisassembler;
-import com.shop.ordering.infrastructure.persistence.repository.ShoppingCartPersistenceEntityRepository;
+import com.shop.ordering.domain.model.customer.CustomerId;
+import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityAssembler;
+import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityAssembler;
+import com.shop.ordering.infrastructure.persistence.SpringDataAuditingConfig;
+import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityDisassembler;
+import com.shop.ordering.infrastructure.persistence.customer.CustomersPersistenceProvider;
+import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityDisassembler;
+import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartsPersistenceProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
