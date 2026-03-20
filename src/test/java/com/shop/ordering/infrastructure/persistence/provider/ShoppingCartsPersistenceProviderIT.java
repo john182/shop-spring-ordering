@@ -1,7 +1,7 @@
 package com.shop.ordering.infrastructure.persistence.provider;
 
 import com.shop.ordering.domain.model.customer.Customer;
-import com.shop.ordering.domain.model.entity.CustomerTestDataBuilder;
+import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
 import com.shop.ordering.domain.model.entity.ShoppingCartTestDataBuilder;
 import com.shop.ordering.domain.model.customer.CustomerId;

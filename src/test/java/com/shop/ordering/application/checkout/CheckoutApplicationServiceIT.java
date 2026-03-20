@@ -3,7 +3,7 @@ package com.shop.ordering.application.checkout;
 import com.shop.ordering.domain.model.commons.Money;
 import com.shop.ordering.domain.model.commons.Quantity;
 import com.shop.ordering.domain.model.customer.Customers;
-import com.shop.ordering.domain.model.entity.CustomerTestDataBuilder;
+import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.domain.model.entity.ProductTestDataBuilder;
 import com.shop.ordering.domain.model.entity.ShoppingCartTestDataBuilder;
 import com.shop.ordering.domain.model.order.*;

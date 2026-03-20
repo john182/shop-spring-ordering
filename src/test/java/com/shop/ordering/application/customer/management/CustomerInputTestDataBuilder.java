@@ -1,4 +1,4 @@
-package com.shop.ordering.application.service.customer.management;
+package com.shop.ordering.application.customer.management;
 
 import com.shop.ordering.application.commons.AddressData;
 import com.shop.ordering.application.customer.management.CustomerInput;

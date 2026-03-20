@@ -2,6 +2,7 @@ package com.shop.ordering.domain.model.entity;
 
 import com.shop.ordering.domain.model.commons.Quantity;
 import com.shop.ordering.domain.model.customer.CustomerId;
+import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
 import com.shop.ordering.domain.model.shoppingcart.ShoppingCartId;
 

@@ -1,6 +1,7 @@
 package com.shop.ordering.domain.model.entity;
 
 import com.shop.ordering.domain.model.IdGenerator;
+import com.shop.ordering.domain.model.customer.CustomerPersistenceEntityTestDataBuilder;
 import com.shop.ordering.infrastructure.persistence.order.OrderItemPersistenceEntity;
 import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntity;
 import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntity.OrderPersistenceEntityBuilder;

@@ -1,17 +1,18 @@
-package com.shop.ordering.application.service.customer.management;
+package com.shop.ordering.application.customer.management;
 
 import com.shop.ordering.application.commons.AddressData;
-import com.shop.ordering.application.customer.management.CustomerInput;
-import com.shop.ordering.application.customer.management.CustomerManagementApplicationService;
-import com.shop.ordering.application.customer.management.CustomerOutput;
-import com.shop.ordering.application.customer.management.CustomerUpdateInput;
+import com.shop.ordering.application.customer.notification.CustomerNotificationApplicationService;
 import com.shop.ordering.domain.model.customer.CustomerArchivedException;
 import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
+import com.shop.ordering.domain.model.customer.CustomerRegisteredEvent;
+import com.shop.ordering.infrastructure.listener.customer.CustomerEventListener;
 import jakarta.transaction.Transactional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -22,6 +23,12 @@ class CustomerManagementApplicationServiceIT {
 
     @Autowired
     private CustomerManagementApplicationService customerManagementApplicationService;
+
+    @MockitoSpyBean
+    private CustomerEventListener customerEventListener;
+
+    @MockitoSpyBean
+    private CustomerNotificationApplicationService customerNotificationService;
 
     @Test
     public void shouldRegister() {
@@ -55,6 +62,12 @@ class CustomerManagementApplicationServiceIT {
         Assertions.assertThat(customerOutput.getEmail()).isEqualTo("johndoe@email.com");
         Assertions.assertThat(customerOutput.getBirthDate()).isEqualTo(LocalDate.of(1991, 7,5));
         Assertions.assertThat(customerOutput.getRegisteredAt()).isNotNull();
+
+        Mockito.verify(customerEventListener)
+                .listen(Mockito.any(CustomerRegisteredEvent.class));
+
+        Mockito.verify(customerNotificationService)
+                .notifyNewRegistration(Mockito.any(CustomerNotificationApplicationService.NotifyNewRegistrationInput.class));
     }
 
     @Test

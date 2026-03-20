@@ -1,10 +1,6 @@
-package com.shop.ordering.domain.model.entity;
+package com.shop.ordering.domain.model.customer;
 
 import com.shop.ordering.domain.model.commons.*;
-import com.shop.ordering.domain.model.customer.BirthDate;
-import com.shop.ordering.domain.model.customer.Customer;
-import com.shop.ordering.domain.model.customer.LoyaltyPoints;
-import com.shop.ordering.domain.model.customer.CustomerId;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;

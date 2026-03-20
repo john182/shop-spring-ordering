@@ -7,7 +7,7 @@ import com.shop.ordering.domain.model.customer.CustomerId;
 import java.time.LocalDate;
 
 
-import static com.shop.ordering.domain.model.entity.CustomerTestDataBuilder.DEFAULT_CUSTOMER_ID;
+import static com.shop.ordering.domain.model.customer.CustomerTestDataBuilder.DEFAULT_CUSTOMER_ID;
 
 public class OrderTestDataBuilder {
 

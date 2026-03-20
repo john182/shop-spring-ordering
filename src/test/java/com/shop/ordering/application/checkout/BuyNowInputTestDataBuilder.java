@@ -1,7 +1,7 @@
 package com.shop.ordering.application.checkout;
 
 import com.shop.ordering.application.commons.AddressData;
-import com.shop.ordering.domain.model.entity.CustomerTestDataBuilder;
+import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.domain.model.entity.ProductTestDataBuilder;
 
 public class BuyNowInputTestDataBuilder {
