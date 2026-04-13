@@ -1,16 +1,18 @@
 package com.shop.ordering.infrastructure.persistence.order;
 
-import com.shop.ordering.domain.model.order.Order;
-import com.shop.ordering.domain.model.order.OrderStatus;
-import com.shop.ordering.domain.model.order.PaymentMethod;
-import com.shop.ordering.domain.model.commons.Money;
-import com.shop.ordering.domain.model.commons.Quantity;
-
+import com.shop.ordering.domain.model.commons.*;
+import com.shop.ordering.domain.model.order.*;
+import com.shop.ordering.domain.model.product.ProductName;
 import com.shop.ordering.domain.model.customer.CustomerId;
 import com.shop.ordering.domain.model.order.OrderId;
+import com.shop.ordering.domain.model.order.OrderItemId;
+import com.shop.ordering.domain.model.product.ProductId;
+import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 public class OrderPersistenceEntityDisassembler {
@@ -28,6 +30,61 @@ public class OrderPersistenceEntityDisassembler {
                 .canceledAt(persistenceEntity.getCanceledAt())
                 .readyAt(persistenceEntity.getReadyAt())
                 .items(new HashSet<>())
+                .version(persistenceEntity.getVersion())
+                .items(toDomainEntity(persistenceEntity.getItems()))
+                .build();
+    }
+
+    private Set<OrderItem> toDomainEntity(Set<OrderItemPersistenceEntity> items) {
+        return items.stream().map(i -> toDomainEntity(i)).collect(Collectors.toSet());
+    }
+
+    private OrderItem toDomainEntity(OrderItemPersistenceEntity persistenceEntity) {
+        return OrderItem.existing()
+                .id(new OrderItemId(persistenceEntity.getId()))
+                .orderId(new OrderId(persistenceEntity.getOrderId()))
+                .productId(new ProductId(persistenceEntity.getProductId()))
+                .productName(new ProductName(persistenceEntity.getProductName()))
+                .price(new Money(persistenceEntity.getPrice()))
+                .quantity(new Quantity(persistenceEntity.getQuantity()))
+                .totalAmount(new Money(persistenceEntity.getTotalAmount()))
+                .build();
+    }
+
+    private Shipping toShippingValueObject(ShippingEmbeddable shippingEmbeddable) {
+        RecipientEmbeddable recipientEmbeddable = shippingEmbeddable.getRecipient();
+        return Shipping.builder()
+                .cost(new Money(shippingEmbeddable.getCost()))
+                .expectedDate(shippingEmbeddable.getExpectedDate())
+                .recipient(
+                        Recipient.builder()
+                                .fullName(new FullName(recipientEmbeddable.getFirstName(), recipientEmbeddable.getLastName()))
+                                .document(new Document(recipientEmbeddable.getDocument()))
+                                .phone(new Phone(recipientEmbeddable.getPhone()))
+                                .build()
+                )
+                .address(toAddressValueObject(shippingEmbeddable.getAddress()))
+                .build();
+    }
+
+    private Billing toBillingValueObject(BillingEmbeddable billingEmbeddable) {
+        return Billing.builder()
+                .fullName(new FullName(billingEmbeddable.getFirstName(), billingEmbeddable.getLastName()))
+                .document(new Document(billingEmbeddable.getDocument()))
+                .phone(new Phone(billingEmbeddable.getPhone()))
+                .address(toAddressValueObject(billingEmbeddable.getAddress()))
+                .build();
+    }
+
+    private Address toAddressValueObject(AddressEmbeddable address) {
+        return Address.builder()
+                .street(address.getStreet())
+                .number(address.getNumber())
+                .complement(address.getComplement())
+                .neighborhood(address.getNeighborhood())
+                .city(address.getCity())
+                .state(address.getState())
+                .zipCode(new ZipCode(address.getZipCode()))
                 .build();
     }
 

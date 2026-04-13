@@ -1,6 +1,9 @@
 package com.shop.ordering.application.checkout;
 
 import com.shop.ordering.domain.model.commons.ZipCode;
+import com.shop.ordering.domain.model.customer.Customer;
+import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
+import com.shop.ordering.domain.model.customer.Customers;
 import com.shop.ordering.domain.model.order.CheckoutService;
 import com.shop.ordering.domain.model.order.Order;
 import com.shop.ordering.domain.model.order.Orders;
@@ -27,6 +30,8 @@ public class CheckoutApplicationService {
 
 	private final Orders orders;
 	private final ShoppingCarts shoppingCarts;
+	private final Customers customers;
+
 	private final CheckoutService checkoutService;
 
 	private final BillingInputDisassembler billingInputDisassembler;
@@ -43,11 +48,13 @@ public class CheckoutApplicationService {
 
 		ShoppingCartId shoppingCartId = new ShoppingCartId(input.getShoppingCartId());
 		ShoppingCart shoppingCart = shoppingCarts.ofId(shoppingCartId)
-				.orElseThrow(ShoppingCartNotFoundException::new);
+				.orElseThrow(() -> new ShoppingCartNotFoundException());
+
+		Customer customer = customers.ofId(shoppingCart.customerId()).orElseThrow(() -> new CustomerNotFoundException());
 
 		var shippingCalculationResult = calculateShippingCost(input.getShipping());
 
-		Order order = checkoutService.checkout(shoppingCart,
+		Order order = checkoutService.checkout(customer, shoppingCart,
 				billingInputDisassembler.toDomainModel(input.getBilling()),
 				shippingInputDisassembler.toDomainModel(input.getShipping(), shippingCalculationResult),
 				paymentMethod);
