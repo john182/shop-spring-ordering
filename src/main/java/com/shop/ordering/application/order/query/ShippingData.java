@@ -1,6 +1,5 @@
 package com.shop.ordering.application.order.query;
 
-import com.shop.ordering.application.checkout.RecipientData;
 import com.shop.ordering.application.commons.AddressData;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,8 @@
 package com.shop.ordering.application.checkout;
 
 import com.shop.ordering.application.commons.AddressData;
+import com.shop.ordering.application.order.query.BillingData;
+import com.shop.ordering.application.order.query.RecipientData;
 import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.domain.model.entity.ProductTestDataBuilder;
 

@@ -1,6 +1,8 @@
 package com.shop.ordering.application.checkout;
 
 import com.shop.ordering.application.commons.AddressData;
+import com.shop.ordering.application.order.query.BillingData;
+import com.shop.ordering.application.order.query.RecipientData;
 
 import java.util.UUID;
 

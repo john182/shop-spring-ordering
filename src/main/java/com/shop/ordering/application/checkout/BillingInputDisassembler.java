@@ -1,6 +1,7 @@
 package com.shop.ordering.application.checkout;
 
 import com.shop.ordering.application.commons.AddressData;
+import com.shop.ordering.application.order.query.BillingData;
 import com.shop.ordering.domain.model.commons.*;
 import com.shop.ordering.domain.model.order.Billing;
 import org.springframework.stereotype.Component;
