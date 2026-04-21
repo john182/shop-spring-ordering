@@ -47,8 +47,9 @@ class CustomerControllerContractTest {
     public void createCustomerContract() {
         CustomerOutput customerOutput = CustomerOutputTestDataBuilder.existing().build();
 
+        UUID customerId = UUID.randomUUID();
         Mockito.when(customerManagementApplicationService.create(Mockito.any(CustomerInput.class)))
-                .thenReturn(UUID.randomUUID());
+                .thenReturn(customerId);
         Mockito.when(customerQueryService.findById(Mockito.any(UUID.class)))
                 .thenReturn(customerOutput);
 
@@ -83,6 +84,7 @@ class CustomerControllerContractTest {
                 .then()
                 .assertThat()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .header("Location", Matchers.containsString("/api/v1/customers/" + customerId))
                 .statusCode(HttpStatus.CREATED.value())
                 .body(
                         "id", Matchers.notNullValue(),
