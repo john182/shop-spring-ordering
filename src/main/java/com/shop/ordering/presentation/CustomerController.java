@@ -2,6 +2,7 @@ package com.shop.ordering.presentation;
 
 import com.shop.ordering.application.customer.management.CustomerInput;
 import com.shop.ordering.application.customer.management.CustomerManagementApplicationService;
+import com.shop.ordering.application.customer.management.CustomerUpdateInput;
 import com.shop.ordering.application.customer.query.CustomerFilter;
 import com.shop.ordering.application.customer.query.CustomerOutput;
 import com.shop.ordering.application.customer.query.CustomerQueryService;
@@ -44,6 +45,19 @@ public class CustomerController {
         httpServletResponse.addHeader("Location", builder.toUriString());
 
         return customerQueryService.findById(customerId);
+    }
+
+    @PutMapping("/{customerId}")
+    public CustomerOutput update(@PathVariable UUID customerId,
+                                 @RequestBody @Valid CustomerUpdateInput input) {
+        customerManagementApplicationService.update(customerId, input);
+        return customerQueryService.findById(customerId);
+    }
+
+    @DeleteMapping("/{customerId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable UUID customerId) {
+        customerManagementApplicationService.archive(customerId);
     }
 
 }
