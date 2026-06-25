@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ordering
+  h2:
+    console:
+      enabled: 'true'
+      settings.web-allow-others: 'true'
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+shop:
+  integrations:
+    shipping.provider: "RAPIDEX"
+    rapidex.url: "http://localhost:8780"

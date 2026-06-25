@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:~/ordering;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;
+    username: sa
+    password: '123'
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka
+    healthcheck:
+      enabled: true
+  instance:
+    instanceId: ${random.uuid}
+    prefer-ip-address: true
