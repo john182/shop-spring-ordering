@@ -5,11 +5,14 @@ import com.shop.ordering.domain.model.commons.Money;
 import com.shop.ordering.domain.model.product.Product;
 import com.shop.ordering.domain.model.product.ProductName;
 import com.shop.ordering.domain.model.product.ProductId;
+import jakarta.ws.rs.Produces;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
+@Profile("test")
 public class ProductCatalogServiceFakeImpl implements ProductCatalogService {
     @Override
     public Optional<Product> ofId(ProductId productId) {
