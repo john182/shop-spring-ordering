@@ -1,15 +1,16 @@
 spring:
   application:
     name: ordering
-  h2:
-    console:
-      enabled: 'true'
-      settings.web-allow-others: 'true'
+  datasource:
+    url: 'jdbc:postgresql://localhost:5433/ordering'
+    username: postgres
+    password: postgres
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: 'true'
+  flyway:
+    enabled: false
 
 logging:
   pattern:
