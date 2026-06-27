@@ -16,6 +16,7 @@ import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartsPe
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Propagation;
@@ -25,6 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Import({
         ShoppingCartsPersistenceProvider.class,
         ShoppingCartPersistenceEntityAssembler.class,
@@ -84,7 +86,7 @@ class ShoppingCartsPersistenceProviderIT {
         assertThat(persistenceProvider.exists(shoppingCart.id())).isFalse();
         assertThat(entityRepository.findById(shoppingCart.id().value())).isEmpty();
     }
-    
+
     @Test
     public void shouldRemoveShoppingCartByEntity() {
         ShoppingCart shoppingCart = ShoppingCartTestDataBuilder.aShoppingCart().build();
@@ -116,7 +118,7 @@ class ShoppingCartsPersistenceProviderIT {
 
         ShoppingCart cart1 = ShoppingCartTestDataBuilder.aShoppingCart().build();
         persistenceProvider.add(cart1);
-        
+
         Customer otherCustomer = CustomerTestDataBuilder.existingCustomer().id(new CustomerId()).build();
         customersPersistenceProvider.add(otherCustomer);
 
@@ -127,7 +129,7 @@ class ShoppingCartsPersistenceProviderIT {
 
         assertThat(finalCount).isEqualTo(initialCount + 2);
     }
-    
+
     @Test
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void shouldAddAndFindWhenNoTransaction() {
