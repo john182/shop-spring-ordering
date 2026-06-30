@@ -1,6 +1,6 @@
 package com.shop.ordering.application.order.query;
 
-import com.shop.ordering.application.utility.PageFilter;
+
 import com.shop.ordering.domain.model.customer.Customer;
 import com.shop.ordering.domain.model.customer.CustomerId;
 import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
