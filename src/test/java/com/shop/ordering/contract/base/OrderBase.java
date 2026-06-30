@@ -3,7 +3,7 @@ package com.shop.ordering.contract.base;
 import com.shop.ordering.application.order.query.OrderDetailOutputTestDataBuilder;
 import com.shop.ordering.application.order.query.OrderQueryService;
 import com.shop.ordering.domain.model.order.OrderNotFoundException;
-import com.shop.ordering.presentation.OrderController;
+import com.shop.ordering.presentation.order.OrderController;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;

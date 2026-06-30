@@ -1,4 +1,4 @@
-package com.shop.ordering.presentation;
+package com.shop.ordering.presentation.customer;
 
 import com.shop.ordering.application.commons.AddressData;
 import com.shop.ordering.application.customer.management.CustomerInput;
@@ -10,7 +10,6 @@ import com.shop.ordering.domain.model.customer.CustomerEmailIsInUseException;
 import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
