@@ -1,13 +1,11 @@
 package com.shop.ordering.application.checkout;
 
+import com.shop.ordering.domain.model.DomainException;
 import com.shop.ordering.domain.model.commons.ZipCode;
 import com.shop.ordering.domain.model.customer.Customer;
 import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
 import com.shop.ordering.domain.model.customer.Customers;
-import com.shop.ordering.domain.model.order.CheckoutService;
-import com.shop.ordering.domain.model.order.Order;
-import com.shop.ordering.domain.model.order.Orders;
-import com.shop.ordering.domain.model.order.PaymentMethod;
+import com.shop.ordering.domain.model.order.*;
 import com.shop.ordering.domain.model.order.shipping.OriginAddressService;
 import com.shop.ordering.domain.model.order.shipping.ShippingCostService;
 import com.shop.ordering.domain.model.product.Product;
@@ -46,6 +44,15 @@ public class CheckoutApplicationService {
 		Objects.requireNonNull(input);
 		PaymentMethod paymentMethod = PaymentMethod.valueOf(input.getPaymentMethod());
 
+		CreditCardId creditCardId = null;
+
+		if (paymentMethod.equals(PaymentMethod.CREDIT_CARD)) {
+			if (input.getCreditCardId() == null) {
+				throw new DomainException("Credit card id is required");
+			}
+			creditCardId = new CreditCardId(input.getCreditCardId());
+		}
+
 		ShoppingCartId shoppingCartId = new ShoppingCartId(input.getShoppingCartId());
 		ShoppingCart shoppingCart = shoppingCarts.ofId(shoppingCartId)
 				.orElseThrow(() -> new ShoppingCartNotFoundException());
@@ -57,7 +64,7 @@ public class CheckoutApplicationService {
 		Order order = checkoutService.checkout(customer, shoppingCart,
 				billingInputDisassembler.toDomainModel(input.getBilling()),
 				shippingInputDisassembler.toDomainModel(input.getShipping(), shippingCalculationResult),
-				paymentMethod);
+				paymentMethod, creditCardId);
 
 		orders.add(order);
 		shoppingCarts.add(shoppingCart);
@@ -73,7 +80,7 @@ public class CheckoutApplicationService {
 
 	private Product findProduct(ProductId productId) {
 		return productCatalogService.ofId(productId)
-				.orElseThrow(ProductNotFoundException::new);
+				.orElseThrow(()-> new ProductNotFoundException());
 	}
 
 }

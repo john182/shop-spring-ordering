@@ -24,7 +24,7 @@ import java.util.UUID;
 @Table(name = "\"order\"")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 @EntityListeners(AuditingEntityListener.class)
-public class OrderPersistenceEntity   extends AbstractAggregateRoot<OrderPersistenceEntity> {
+public class OrderPersistenceEntity  extends AbstractAggregateRoot<OrderPersistenceEntity> {
     @Id
     @EqualsAndHashCode.Include
     private Long id;
@@ -37,6 +37,7 @@ public class OrderPersistenceEntity   extends AbstractAggregateRoot<OrderPersist
     private Integer totalItems;
     private String status;
     private String paymentMethod;
+    private UUID creditCardId;
 
     private OffsetDateTime placedAt;
     private OffsetDateTime paidAt;

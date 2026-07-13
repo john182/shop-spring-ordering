@@ -1,10 +1,10 @@
 package com.shop.ordering.domain.model.customer;
 
 import com.shop.ordering.domain.model.commons.Quantity;
-import com.shop.ordering.domain.model.entity.OrderTestDataBuilder;
 import com.shop.ordering.domain.model.entity.ProductTestDataBuilder;
 import com.shop.ordering.domain.model.order.Order;
 import com.shop.ordering.domain.model.order.OrderStatus;
+import com.shop.ordering.domain.model.order.OrderTestDataBuilder;
 import com.shop.ordering.domain.model.product.Product;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

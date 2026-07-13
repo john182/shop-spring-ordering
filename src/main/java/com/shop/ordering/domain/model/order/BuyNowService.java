@@ -16,19 +16,19 @@ public class BuyNowService {
 
 	private final CustomerHaveFreeShippingSpecification customerHaveFreeShippingSpecification;
 
-
 	public Order buyNow(Product product,
-						Customer customer,
-						Billing billing,
-						Shipping shipping,
-						Quantity quantity,
-						PaymentMethod paymentMethod) {
+	                    Customer customer,
+	                    Billing billing,
+	                    Shipping shipping,
+	                    Quantity quantity,
+	                    PaymentMethod paymentMethod,
+	                    CreditCardId creditCardId) {
 
 		product.checkOutOfStock();
 
 		Order order = Order.draft(customer.id());
 		order.changeBilling(billing);
-		order.changePaymentMethod(paymentMethod);
+		order.changePaymentMethod(paymentMethod, creditCardId);
 		order.addItem(product, quantity);
 
 		if (haveFreeShipping(customer)) {
@@ -46,6 +46,5 @@ public class BuyNowService {
 	private boolean haveFreeShipping(Customer customer) {
 		return customerHaveFreeShippingSpecification.isSatisfiedBy(customer);
 	}
-
 
 }

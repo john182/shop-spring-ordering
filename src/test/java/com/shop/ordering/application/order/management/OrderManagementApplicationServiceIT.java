@@ -2,7 +2,6 @@ package com.shop.ordering.application.order.management;
 
 import com.shop.ordering.domain.model.customer.Customers;
 import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
-import com.shop.ordering.domain.model.entity.OrderTestDataBuilder;
 import com.shop.ordering.domain.model.order.*;
 import com.shop.ordering.infrastructure.listener.order.OrderEventListener;
 import org.assertj.core.api.Assertions;

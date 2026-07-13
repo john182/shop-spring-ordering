@@ -42,6 +42,8 @@ public class Order
 
     private Long version;
 
+    private CreditCardId creditCardId;
+
     @Builder(builderClassName = "ExistingOrderBuilder", builderMethodName = "existing")
     public Order(OrderId id, Long version, CustomerId customerId,
                  Money totalAmount, Quantity totalItems,
@@ -49,7 +51,7 @@ public class Order
                  OffsetDateTime canceledAt, OffsetDateTime readyAt,
                  Billing billing, Shipping shipping,
                  OrderStatus status, PaymentMethod paymentMethod,
-                 Set<OrderItem> items) {
+                 Set<OrderItem> items, CreditCardId creditCardId) {
         this.setId(id);
         this.setVersion(version);
         this.setCustomerId(customerId);
@@ -64,6 +66,7 @@ public class Order
         this.setStatus(status);
         this.setPaymentMethod(paymentMethod);
         this.setItems(items);
+        this.setCreditCardId(creditCardId);
     }
 
     public static Order draft(CustomerId customerId) {
@@ -81,13 +84,18 @@ public class Order
                 null,
                 OrderStatus.DRAFT,
                 null,
-                new HashSet<>()
+                new HashSet<>(),
+                null
         );
     }
 
     public void addItem(Product product, Quantity quantity) {
         Objects.requireNonNull(product);
         Objects.requireNonNull(quantity);
+
+        if (quantity.equals(Quantity.ZERO)) {
+            throw new IllegalArgumentException();
+        }
 
         this.verifyIfChangeable();
 
@@ -133,8 +141,12 @@ public class Order
         publishDomainEvent(new OrderCanceledEvent(this.id(), this.customerId(), this.canceledAt()));
     }
 
-    public void changePaymentMethod(PaymentMethod paymentMethod) {
+    public void changePaymentMethod(PaymentMethod paymentMethod, CreditCardId creditCardId) {
         Objects.requireNonNull(paymentMethod);
+        if (paymentMethod.equals(PaymentMethod.CREDIT_CARD)) {
+            Objects.requireNonNull(creditCardId);
+            this.setCreditCardId(creditCardId);
+        }
         this.verifyIfChangeable();
         this.setPaymentMethod(paymentMethod);
     }
@@ -250,6 +262,10 @@ public class Order
 
     public Set<OrderItem> items() {
         return Collections.unmodifiableSet(this.items);
+    }
+
+    public CreditCardId creditCardId() {
+        return creditCardId;
     }
 
     private void recalculateTotals() {
@@ -373,6 +389,10 @@ public class Order
     private void setItems(Set<OrderItem> items) {
         Objects.requireNonNull(items);
         this.items = items;
+    }
+
+    private void setCreditCardId(CreditCardId creditCardId) {
+        this.creditCardId = creditCardId;
     }
 
     @Override

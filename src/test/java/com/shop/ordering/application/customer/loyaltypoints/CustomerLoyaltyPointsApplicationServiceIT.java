@@ -5,7 +5,6 @@ import com.shop.ordering.domain.model.commons.Money;
 import com.shop.ordering.domain.model.commons.Quantity;
 import com.shop.ordering.domain.model.customer.*;
 import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
-import com.shop.ordering.domain.model.entity.OrderTestDataBuilder;
 import com.shop.ordering.domain.model.entity.ProductTestDataBuilder;
 import com.shop.ordering.domain.model.order.*;
 import com.shop.ordering.domain.model.product.Product;
