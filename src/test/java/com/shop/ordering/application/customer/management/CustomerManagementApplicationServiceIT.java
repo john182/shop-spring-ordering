@@ -1,18 +1,25 @@
 package com.shop.ordering.application.customer.management;
 
-import com.shop.ordering.application.commons.AddressData;
 import com.shop.ordering.application.customer.notification.CustomerNotificationApplicationService;
+import com.shop.ordering.application.customer.query.CustomerOutput;
+import com.shop.ordering.application.customer.query.CustomerQueryService;
+import com.shop.ordering.domain.model.customer.CustomerArchivedEvent;
 import com.shop.ordering.domain.model.customer.CustomerArchivedException;
 import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
 import com.shop.ordering.domain.model.customer.CustomerRegisteredEvent;
 import com.shop.ordering.infrastructure.listener.customer.CustomerEventListener;
 import jakarta.transaction.Transactional;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -21,6 +28,30 @@ import java.util.UUID;
 @Transactional
 class CustomerManagementApplicationServiceIT {
 
+    private static PostgreSQLContainer postgreSQLContainer
+            = new PostgreSQLContainer<>("postgres:17-alpine")
+            .withDatabaseName("ordering_test");
+
+    @BeforeAll
+    public static void beforeAll() {
+        postgreSQLContainer.start();
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        postgreSQLContainer.stop();
+    }
+
+    @DynamicPropertySource
+    public static void configurePropertySource(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
+        registry.add("spring.datasource.username", postgreSQLContainer::getUsername);
+        registry.add("spring.datasource.password", postgreSQLContainer::getPassword);
+        registry.add("spring.flyway.url", postgreSQLContainer::getJdbcUrl);
+        registry.add("spring.flyway.user", postgreSQLContainer::getUsername);
+        registry.add("spring.flyway.password", postgreSQLContainer::getPassword);
+    }
+
     @Autowired
     private CustomerManagementApplicationService customerManagementApplicationService;
 
@@ -28,45 +59,44 @@ class CustomerManagementApplicationServiceIT {
     private CustomerEventListener customerEventListener;
 
     @MockitoSpyBean
-    private CustomerNotificationApplicationService customerNotificationService;
+    private CustomerNotificationApplicationService customerNotificationApplicationService;
+
+    @Autowired
+    private CustomerQueryService queryService;
 
     @Test
     public void shouldRegister() {
-        CustomerInput input = CustomerInput.builder()
-                .firstName("John")
-                .lastName("Doe")
-                .birthDate(LocalDate.of(1991, 7,5))
-                .document("255-08-0578")
-                .phone("478-256-2604")
-                .email("johndoe@email.com")
-                .promotionNotificationsAllowed(false)
-                .address(AddressData.builder()
-                        .street("Bourbon Street")
-                        .number("1200")
-                        .complement("Apt. 901")
-                        .neighborhood("North Ville")
-                        .city("Yostfort")
-                        .state("South Carolina")
-                        .zipCode("70283")
-                        .build())
-                .build();
+        CustomerInput input = CustomerInputTestDataBuilder.aCustomer().build();
 
         UUID customerId = customerManagementApplicationService.create(input);
         Assertions.assertThat(customerId).isNotNull();
 
-        CustomerOutput customerOutput = customerManagementApplicationService.findById(customerId);
+        CustomerOutput customerOutput = queryService.findById(customerId);
 
-        Assertions.assertThat(customerOutput.getId()).isEqualTo(customerId);
-        Assertions.assertThat(customerOutput.getFirstName()).isEqualTo("John");
-        Assertions.assertThat(customerOutput.getLastName()).isEqualTo("Doe");
-        Assertions.assertThat(customerOutput.getEmail()).isEqualTo("johndoe@email.com");
-        Assertions.assertThat(customerOutput.getBirthDate()).isEqualTo(LocalDate.of(1991, 7,5));
+        Assertions.assertThat(customerOutput)
+                .extracting(
+                        CustomerOutput::getId,
+                        CustomerOutput::getFirstName,
+                        CustomerOutput::getLastName,
+                        CustomerOutput::getEmail,
+                        CustomerOutput::getBirthDate
+                ).containsExactly(
+                        customerId,
+                        "John",
+                        "Doe",
+                        "johndoe@email.com",
+                        LocalDate.of(1991, 7,5)
+                );
+
         Assertions.assertThat(customerOutput.getRegisteredAt()).isNotNull();
 
         Mockito.verify(customerEventListener)
                 .listen(Mockito.any(CustomerRegisteredEvent.class));
 
-        Mockito.verify(customerNotificationService)
+        Mockito.verify(customerEventListener, Mockito.never())
+                .listen(Mockito.any(CustomerArchivedEvent.class));
+
+        Mockito.verify(customerNotificationApplicationService)
                 .notifyNewRegistration(Mockito.any(CustomerNotificationApplicationService.NotifyNewRegistrationInput.class));
     }
 
@@ -80,7 +110,7 @@ class CustomerManagementApplicationServiceIT {
 
         customerManagementApplicationService.update(customerId, updateInput);
 
-        CustomerOutput customerOutput = customerManagementApplicationService.findById(customerId);
+        CustomerOutput customerOutput = queryService.findById(customerId);
 
         Assertions.assertThat(customerOutput)
                 .extracting(
@@ -108,7 +138,7 @@ class CustomerManagementApplicationServiceIT {
 
         customerManagementApplicationService.archive(customerId);
 
-        CustomerOutput archivedCustomer = customerManagementApplicationService.findById(customerId);
+        CustomerOutput archivedCustomer = queryService.findById(customerId);
 
         Assertions.assertThat(archivedCustomer)
                 .isNotNull()
@@ -156,5 +186,4 @@ class CustomerManagementApplicationServiceIT {
         Assertions.assertThatExceptionOfType(CustomerArchivedException.class)
                 .isThrownBy(() -> customerManagementApplicationService.archive(customerId));
     }
-
 }

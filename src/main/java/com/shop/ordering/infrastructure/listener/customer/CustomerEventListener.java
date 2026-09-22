@@ -40,4 +40,9 @@ public class CustomerEventListener {
                 event.orderId().toString());
     }
 
+    @EventListener
+    public void listen(CustomerArchivedEvent event) {
+        log.info("CustomerArchivedEvent listen 1");
+    }
+
 }
