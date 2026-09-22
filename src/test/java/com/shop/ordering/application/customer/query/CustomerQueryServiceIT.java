@@ -1,5 +1,6 @@
 package com.shop.ordering.application.customer.query;
 
+import com.shop.ordering.application.AbstractApplicationIT;
 import com.shop.ordering.domain.model.commons.Email;
 import com.shop.ordering.domain.model.commons.FullName;
 import com.shop.ordering.domain.model.customer.Customer;
@@ -14,9 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 
-@SpringBootTest
-@Transactional
-class CustomerQueryServiceIT {
+class CustomerQueryServiceIT extends AbstractApplicationIT {
     @Autowired
     private CustomerQueryService queryService;
 
