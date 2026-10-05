@@ -24,7 +24,8 @@ import java.util.UUID;
 @Table(name = "\"order\"")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 @EntityListeners(AuditingEntityListener.class)
-public class OrderPersistenceEntity  extends AbstractAggregateRoot<OrderPersistenceEntity> {
+public class
+OrderPersistenceEntity  extends AbstractAggregateRoot<OrderPersistenceEntity> {
     @Id
     @EqualsAndHashCode.Include
     private Long id;

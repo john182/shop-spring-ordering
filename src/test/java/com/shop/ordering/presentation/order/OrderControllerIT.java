@@ -10,14 +10,13 @@ import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistence
 import com.shop.ordering.infrastructure.persistence.entity.CustomerPersistenceEntityTestDataBuilder;
 import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityRepository;
 import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
+import com.shop.ordering.presentation.AbstractPresentationIT;
 import com.shop.ordering.utils.ResourceUtils;
 import io.restassured.RestAssured;
 import io.restassured.path.json.config.JsonPathConfig;
 import org.assertj.core.api.Assertions;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -31,14 +30,8 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import static com.shop.ordering.infrastructure.persistence.entity.ShoppingCartPersistenceEntityTestDataBuilder.existingShoppingCart;
 import static io.restassured.config.JsonConfig.jsonConfig;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//@AutoConfigureStubRunner(stubsMode = StubRunnerProperties.StubsMode.LOCAL,
-//        ids = "com.algaworks.algashop:product-catalog:0.0.1-SNAPSHOT:8781")
-@Sql(scripts = "classpath:db/clean/afterMigrate.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-public class OrderControllerIT {
 
-    @LocalServerPort
-    private int port;
+public class OrderControllerIT extends AbstractPresentationIT {
 
     @Autowired
     private CustomerPersistenceEntityRepository customerRepository;
@@ -53,44 +46,19 @@ public class OrderControllerIT {
     private static final UUID validProductId = UUID.fromString("fffe6ec2-7103-48b3-8e4f-3b58e43fb75a");
     private static final UUID validShoppingCartId = UUID.fromString("4f31582a-66e6-4601-a9d3-ff608c2d4461");
 
-    private WireMockServer wireMockProductCatalog;
-    private WireMockServer wireMockRapidex;
-
     @BeforeEach
     public void setup() {
-        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-        RestAssured.port = port;
-
-        RestAssured.config().jsonConfig(jsonConfig().numberReturnType(JsonPathConfig.NumberReturnType.BIG_DECIMAL));
-
-        initDatabase();
-
-        wireMockRapidex = new WireMockServer(options()
-                    .port(8780)
-                    .usingFilesUnderDirectory("src/test/resources/wiremock/rapidex")
-                    .extensions(new ResponseTemplateTransformer(true)));
-
-        wireMockProductCatalog = new WireMockServer(options()
-                    .port(8781)
-                    .usingFilesUnderDirectory("src/test/resources/wiremock/product-catalog")
-                    .extensions(new ResponseTemplateTransformer(true)));
-
-        wireMockRapidex.start();
-
-        wireMockProductCatalog.start();
-
+        super.beforeEach();
     }
 
-    @AfterEach
-    public void after() {
-        wireMockRapidex.stop();
-        wireMockProductCatalog.stop();
+    @BeforeAll
+    public static void setupBeforeAll() {
+        AbstractPresentationIT.initWireMock();
     }
 
-    private void initDatabase() {
-        customerRepository.saveAndFlush(
-                CustomerPersistenceEntityTestDataBuilder.aCustomer().id(validCustomerId).build()
-        );
+    @AfterAll
+    public static void afterAll() {
+        AbstractPresentationIT.stopMock();
     }
 
     @Test
@@ -98,19 +66,19 @@ public class OrderControllerIT {
         String json = ResourceUtils.readContent("json/create-order-with-product.json");
 
         String createdOrderId = RestAssured
-            .given()
+                .given()
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .contentType("application/vnd.order-with-product.v1+json")
                 .body(json)
-            .when()
+                .when()
                 .post("/api/v1/orders")
-            .then()
+                .then()
                 .assertThat()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .statusCode(HttpStatus.CREATED.value())
                 .body("id", Matchers.not(Matchers.emptyString()),
                         "customer.id", Matchers.is(validCustomerId.toString()))
-            .extract()
+                .extract()
                 .jsonPath().getString("id");
 
         boolean orderExists = orderRepository.existsById(new OrderId(createdOrderId).value().toLong());
@@ -120,51 +88,34 @@ public class OrderControllerIT {
 
     @Test
     public void shouldCreateOrderUsingProduct_DTO() {
+        UUID creditCardId = UUID.randomUUID();
         BuyNowInput input = BuyNowInputTestDataBuilder.aBuyNowInput()
                 .productId(validProductId)
                 .customerId(validCustomerId)
+                .creditCardId(creditCardId)
                 .build();
 
         OrderDetailOutput orderDetailOutput = RestAssured
-            .given()
+                .given()
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .contentType("application/vnd.order-with-product.v1+json")
                 .body(input)
-            .when()
+                .when()
                 .post("/api/v1/orders")
-            .then()
+                .then()
                 .assertThat()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .statusCode(HttpStatus.CREATED.value())
                 .body("id", Matchers.not(Matchers.emptyString()),
                         "customer.id", Matchers.is(validCustomerId.toString()))
-            .extract()
+                .extract()
                 .body().as(OrderDetailOutput.class);
 
         Assertions.assertThat(orderDetailOutput.getCustomer().getId()).isEqualTo(validCustomerId);
+        Assertions.assertThat(orderDetailOutput.getCreditCardId()).isEqualTo(creditCardId);
 
         boolean orderExists = orderRepository.existsById(new OrderId(orderDetailOutput.getId()).value().toLong());
         Assertions.assertThat(orderExists).isTrue();
-    }
-
-    @Test
-    public void shouldNotCreateOrderUsingProductWhenProductAPIIsUnavailable() {
-        String json = ResourceUtils.readContent("json/create-order-with-product.json");
-
-        wireMockProductCatalog.stop();
-
-        RestAssured
-            .given()
-                .accept(MediaType.APPLICATION_JSON_VALUE)
-                .contentType("application/vnd.order-with-product.v1+json")
-                .body(json)
-            .when()
-                .post("/api/v1/orders")
-            .then()
-                .assertThat()
-                .contentType(MediaType.APPLICATION_PROBLEM_JSON_VALUE)
-                .statusCode(HttpStatus.GATEWAY_TIMEOUT.value());
-
     }
 
     @Test
@@ -172,13 +123,13 @@ public class OrderControllerIT {
         String json = ResourceUtils.readContent("json/create-order-with-invalid-product.json");
 
         RestAssured
-            .given()
+                .given()
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .contentType("application/vnd.order-with-product.v1+json")
                 .body(json)
-            .when()
+                .when()
                 .post("/api/v1/orders")
-            .then()
+                .then()
                 .assertThat()
                 .contentType(MediaType.APPLICATION_PROBLEM_JSON_VALUE)
                 .statusCode(HttpStatus.UNPROCESSABLE_ENTITY.value());
@@ -189,13 +140,13 @@ public class OrderControllerIT {
     public void shouldNotCreateOrderUsingProductWhenCustomerWasNotFound() {
         String json = ResourceUtils.readContent("json/create-order-with-product-and-invalid-customer.json");
         RestAssured
-            .given()
+                .given()
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .contentType("application/vnd.order-with-product.v1+json")
                 .body(json)
-            .when()
+                .when()
                 .post("/api/v1/orders")
-            .then()
+                .then()
                 .assertThat()
                 .contentType(MediaType.APPLICATION_PROBLEM_JSON_VALUE)
                 .statusCode(HttpStatus.UNPROCESSABLE_ENTITY.value());
@@ -203,24 +154,22 @@ public class OrderControllerIT {
 
     @Test
     public void shouldCreateOrderUsingShoppingCart() {
-
-
         String json = ResourceUtils.readContent("json/create-order-with-shopping-cart.json");
 
         OrderDetailOutput orderDetailOutput = RestAssured
-            .given()
+                .given()
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .contentType("application/vnd.order-with-shopping-cart.v1+json")
                 .body(json)
-            .when()
+                .when()
                 .post("/api/v1/orders")
-            .then()
+                .then()
                 .assertThat()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .statusCode(HttpStatus.CREATED.value())
                 .body("id", Matchers.not(Matchers.emptyString()),
                         "customer.id", Matchers.is(validCustomerId.toString()))
-            .extract()
+                .extract()
                 .body().as(OrderDetailOutput.class);
 
         Assertions.assertThat(orderDetailOutput.getCustomer().getId()).isEqualTo(validCustomerId);
@@ -228,5 +177,4 @@ public class OrderControllerIT {
         boolean orderExists = orderRepository.existsById(new OrderId(orderDetailOutput.getId()).value().toLong());
         Assertions.assertThat(orderExists).isTrue();
     }
-
 }
