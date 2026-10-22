@@ -1,9 +1,9 @@
 package com.shop.ordering.presentation.shoppingcart;
 
+import com.shop.ordering.core.application.shoppingcart.ShoppingCartQueryService;
 import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartItemInput;
-import com.shop.ordering.core.application.shoppingcart.management.ShoppingCartManagementApplicationService;
-import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartOutput;
-import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartQueryService;
+import com.shop.ordering.core.application.shoppingcart.ShoppingCartManagementApplicationService;
+import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartOutput;
 import com.shop.ordering.core.domain.model.customer.CustomerNotFoundException;
 import com.shop.ordering.core.domain.model.product.ProductNotFoundException;
 import com.shop.ordering.presentation.UnprocessableEntityException;

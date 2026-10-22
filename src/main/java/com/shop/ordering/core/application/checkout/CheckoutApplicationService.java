@@ -55,9 +55,9 @@ public class CheckoutApplicationService {
 
 		ShoppingCartId shoppingCartId = new ShoppingCartId(input.getShoppingCartId());
 		ShoppingCart shoppingCart = shoppingCarts.ofId(shoppingCartId)
-				.orElseThrow(() -> new ShoppingCartNotFoundException());
+				.orElseThrow(() -> new ShoppingCartNotFoundException(shoppingCartId.value()));
 
-		Customer customer = customers.ofId(shoppingCart.customerId()).orElseThrow(() -> new CustomerNotFoundException());
+		Customer customer = customers.ofId(shoppingCart.customerId()).orElseThrow(CustomerNotFoundException::new);
 
 		var shippingCalculationResult = calculateShippingCost(input.getShipping());
 
@@ -80,7 +80,7 @@ public class CheckoutApplicationService {
 
 	private Product findProduct(ProductId productId) {
 		return productCatalogService.ofId(productId)
-				.orElseThrow(()-> new ProductNotFoundException());
+				.orElseThrow(ProductNotFoundException::new);
 	}
 
 }

@@ -1,8 +1,8 @@
 package com.shop.ordering.core.domain.model.customer;
 
-import com.shop.ordering.core.application.model.commons.*;
+
+
 import com.shop.ordering.core.domain.model.commons.*;
-import com.shop.ordering.domain.model.commons.*;
 import com.shop.ordering.core.domain.model.DomainService;
 import lombok.RequiredArgsConstructor;
 

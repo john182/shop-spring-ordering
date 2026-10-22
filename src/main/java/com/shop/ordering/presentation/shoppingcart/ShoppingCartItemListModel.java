@@ -1,6 +1,6 @@
 package com.shop.ordering.presentation.shoppingcart;
 
-import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartItemOutput;
+import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartItemOutput;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

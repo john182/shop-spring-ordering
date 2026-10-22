@@ -1,4 +1,4 @@
-package com.shop.ordering.core.application.shoppingcart.query;
+package com.shop.ordering.core.ports.in.shoppingcart;
 
 import lombok.Data;
 

@@ -1,10 +1,12 @@
 package com.shop.ordering.core.application.shoppingcart.query;
 
+import com.shop.ordering.core.application.shoppingcart.ShoppingCartQueryService;
 import com.shop.ordering.core.domain.model.customer.Customer;
 import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.core.domain.model.customer.Customers;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCart;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCarts;
+import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartOutput;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

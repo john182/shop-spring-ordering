@@ -1,4 +1,4 @@
-package com.shop.ordering.core.application.shoppingcart.management;
+package com.shop.ordering.core.application.shoppingcart;
 
 import com.shop.ordering.core.domain.model.commons.Quantity;
 import com.shop.ordering.core.domain.model.customer.CustomerId;

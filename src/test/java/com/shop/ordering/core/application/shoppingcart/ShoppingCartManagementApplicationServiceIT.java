@@ -9,7 +9,6 @@ import com.shop.ordering.core.domain.model.product.ProductCatalogService;
 import com.shop.ordering.core.domain.model.product.ProductNotFoundException;
 import com.shop.ordering.core.domain.model.product.ProductOutOfStockException;
 import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartItemInput;
-import com.shop.ordering.core.application.shoppingcart.management.ShoppingCartManagementApplicationService;
 import com.shop.ordering.core.domain.model.commons.Quantity;
 import com.shop.ordering.core.domain.model.shoppingcart.*;
 import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
