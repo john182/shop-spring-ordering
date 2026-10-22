@@ -6,7 +6,7 @@ import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
-import static com.shop.ordering.domain.model.customer.CustomerTestDataBuilder.DEFAULT_CUSTOMER_ID;
+import static com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder.DEFAULT_CUSTOMER_ID;
 
 public class CustomerPersistenceEntityTestDataBuilder {
 

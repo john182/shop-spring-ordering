@@ -1,10 +1,10 @@
 package com.shop.ordering.infrastructure.persistence.customer;
 
-import com.shop.ordering.domain.model.commons.*;
-import com.shop.ordering.domain.model.customer.BirthDate;
-import com.shop.ordering.domain.model.customer.Customer;
-import com.shop.ordering.domain.model.customer.LoyaltyPoints;
-import com.shop.ordering.domain.model.customer.CustomerId;
+import com.shop.ordering.core.domain.model.commons.*;
+import com.shop.ordering.core.domain.model.customer.BirthDate;
+import com.shop.ordering.core.domain.model.customer.Customer;
+import com.shop.ordering.core.domain.model.customer.LoyaltyPoints;
+import com.shop.ordering.core.domain.model.customer.CustomerId;
 import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
 import org.springframework.stereotype.Component;
 

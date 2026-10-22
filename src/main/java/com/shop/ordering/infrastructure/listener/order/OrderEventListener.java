@@ -1,9 +1,9 @@
 package com.shop.ordering.infrastructure.listener.order;
 
-import com.shop.ordering.domain.model.order.OrderCanceledEvent;
-import com.shop.ordering.domain.model.order.OrderPaidEvent;
-import com.shop.ordering.domain.model.order.OrderPlacedEvent;
-import com.shop.ordering.domain.model.order.OrderReadyEvent;
+import com.shop.ordering.core.domain.model.order.OrderCanceledEvent;
+import com.shop.ordering.core.domain.model.order.OrderPaidEvent;
+import com.shop.ordering.core.domain.model.order.OrderPlacedEvent;
+import com.shop.ordering.core.domain.model.order.OrderReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

@@ -1,14 +1,14 @@
 package com.shop.ordering.presentation.customer;
 
-import com.shop.ordering.application.customer.management.CustomerInput;
-import com.shop.ordering.application.customer.management.CustomerManagementApplicationService;
-import com.shop.ordering.application.customer.management.CustomerUpdateInput;
-import com.shop.ordering.application.customer.query.CustomerFilter;
-import com.shop.ordering.application.customer.query.CustomerOutput;
-import com.shop.ordering.application.customer.query.CustomerQueryService;
-import com.shop.ordering.application.customer.query.CustomerSummaryOutput;
-import com.shop.ordering.application.shoppingcart.query.ShoppingCartOutput;
-import com.shop.ordering.application.shoppingcart.query.ShoppingCartQueryService;
+import com.shop.ordering.core.application.customer.management.CustomerInput;
+import com.shop.ordering.core.application.customer.management.CustomerManagementApplicationService;
+import com.shop.ordering.core.application.customer.management.CustomerUpdateInput;
+import com.shop.ordering.core.application.customer.query.CustomerFilter;
+import com.shop.ordering.core.application.customer.query.CustomerOutput;
+import com.shop.ordering.core.application.customer.query.CustomerQueryService;
+import com.shop.ordering.core.application.customer.query.CustomerSummaryOutput;
+import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartOutput;
+import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartQueryService;
 import com.shop.ordering.presentation.PageModel;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;

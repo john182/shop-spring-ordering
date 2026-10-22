@@ -1,14 +1,14 @@
 package com.shop.ordering.infrastructure.persistence.shoppingcart;
 
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCartItem;
-import com.shop.ordering.domain.model.commons.Money;
-import com.shop.ordering.domain.model.product.ProductName;
-import com.shop.ordering.domain.model.commons.Quantity;
-import com.shop.ordering.domain.model.customer.CustomerId;
-import com.shop.ordering.domain.model.product.ProductId;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCartId;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCartItemId;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCart;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartItem;
+import com.shop.ordering.core.domain.model.commons.Money;
+import com.shop.ordering.core.domain.model.product.ProductName;
+import com.shop.ordering.core.domain.model.commons.Quantity;
+import com.shop.ordering.core.domain.model.customer.CustomerId;
+import com.shop.ordering.core.domain.model.product.ProductId;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartId;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartItemId;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;

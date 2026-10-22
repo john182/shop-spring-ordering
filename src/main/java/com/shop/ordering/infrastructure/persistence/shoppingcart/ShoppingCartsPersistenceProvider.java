@@ -1,9 +1,9 @@
 package com.shop.ordering.infrastructure.persistence.shoppingcart;
 
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCarts;
-import com.shop.ordering.domain.model.customer.CustomerId;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCartId;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCart;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCarts;
+import com.shop.ordering.core.domain.model.customer.CustomerId;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartId;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

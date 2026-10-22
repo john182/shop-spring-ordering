@@ -1,6 +1,6 @@
 package com.shop.ordering.infrastructure.persistence.entity;
 
-import com.shop.ordering.domain.model.IdGenerator;
+import com.shop.ordering.core.domain.model.IdGenerator;
 import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartItemPersistenceEntity;
 import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntity;
 import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntity.ShoppingCartPersistenceEntityBuilder;

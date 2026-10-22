@@ -1,11 +1,10 @@
 package com.shop.ordering.infrastructure.product.client.fake;
 
-import com.shop.ordering.domain.model.product.ProductCatalogService;
-import com.shop.ordering.domain.model.commons.Money;
-import com.shop.ordering.domain.model.product.Product;
-import com.shop.ordering.domain.model.product.ProductName;
-import com.shop.ordering.domain.model.product.ProductId;
-import jakarta.ws.rs.Produces;
+import com.shop.ordering.core.domain.model.product.ProductCatalogService;
+import com.shop.ordering.core.domain.model.commons.Money;
+import com.shop.ordering.core.domain.model.product.Product;
+import com.shop.ordering.core.domain.model.product.ProductName;
+import com.shop.ordering.core.domain.model.product.ProductId;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 

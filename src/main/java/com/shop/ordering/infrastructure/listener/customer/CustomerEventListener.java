@@ -1,10 +1,10 @@
 package com.shop.ordering.infrastructure.listener.customer;
 
-import com.shop.ordering.application.customer.loyaltypoints.CustomerLoyaltyPointsApplicationService;
-import com.shop.ordering.application.customer.notification.CustomerNotificationApplicationService;
-import com.shop.ordering.domain.model.customer.CustomerArchivedEvent;
-import com.shop.ordering.domain.model.customer.CustomerRegisteredEvent;
-import com.shop.ordering.domain.model.order.OrderReadyEvent;
+import com.shop.ordering.core.application.customer.loyaltypoints.CustomerLoyaltyPointsApplicationService;
+import com.shop.ordering.core.application.customer.notification.CustomerNotificationApplicationService;
+import com.shop.ordering.core.domain.model.customer.CustomerArchivedEvent;
+import com.shop.ordering.core.domain.model.customer.CustomerRegisteredEvent;
+import com.shop.ordering.core.domain.model.order.OrderReadyEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;

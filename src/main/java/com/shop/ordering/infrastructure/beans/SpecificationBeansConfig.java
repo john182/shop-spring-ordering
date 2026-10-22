@@ -1,8 +1,8 @@
 package com.shop.ordering.infrastructure.beans;
 
-import com.shop.ordering.domain.model.customer.LoyaltyPoints;
-import com.shop.ordering.domain.model.order.CustomerHaveFreeShippingSpecification;
-import com.shop.ordering.domain.model.order.Orders;
+import com.shop.ordering.core.domain.model.customer.LoyaltyPoints;
+import com.shop.ordering.core.domain.model.order.CustomerHaveFreeShippingSpecification;
+import com.shop.ordering.core.domain.model.order.Orders;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

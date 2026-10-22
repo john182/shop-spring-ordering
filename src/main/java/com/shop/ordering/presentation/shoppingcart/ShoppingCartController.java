@@ -1,11 +1,11 @@
 package com.shop.ordering.presentation.shoppingcart;
 
-import com.shop.ordering.application.shoppingcart.management.ShoppingCartItemInput;
-import com.shop.ordering.application.shoppingcart.management.ShoppingCartManagementApplicationService;
-import com.shop.ordering.application.shoppingcart.query.ShoppingCartOutput;
-import com.shop.ordering.application.shoppingcart.query.ShoppingCartQueryService;
-import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
-import com.shop.ordering.domain.model.product.ProductNotFoundException;
+import com.shop.ordering.core.application.shoppingcart.management.ShoppingCartItemInput;
+import com.shop.ordering.core.application.shoppingcart.management.ShoppingCartManagementApplicationService;
+import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartOutput;
+import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartQueryService;
+import com.shop.ordering.core.domain.model.customer.CustomerNotFoundException;
+import com.shop.ordering.core.domain.model.product.ProductNotFoundException;
 import com.shop.ordering.presentation.UnprocessableEntityException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

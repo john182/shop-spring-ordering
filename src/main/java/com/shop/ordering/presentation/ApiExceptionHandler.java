@@ -1,8 +1,8 @@
 package com.shop.ordering.presentation;
 
-import com.shop.ordering.domain.model.DomainEntityNotFoundException;
-import com.shop.ordering.domain.model.DomainException;
-import com.shop.ordering.domain.model.customer.CustomerEmailIsInUseException;
+import com.shop.ordering.core.domain.model.DomainEntityNotFoundException;
+import com.shop.ordering.core.domain.model.DomainException;
+import com.shop.ordering.core.domain.model.customer.CustomerEmailIsInUseException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;

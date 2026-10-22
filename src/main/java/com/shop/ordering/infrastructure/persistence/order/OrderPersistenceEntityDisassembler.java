@@ -1,12 +1,10 @@
 package com.shop.ordering.infrastructure.persistence.order;
 
-import com.shop.ordering.domain.model.commons.*;
-import com.shop.ordering.domain.model.order.*;
-import com.shop.ordering.domain.model.product.ProductName;
-import com.shop.ordering.domain.model.customer.CustomerId;
-import com.shop.ordering.domain.model.order.OrderId;
-import com.shop.ordering.domain.model.order.OrderItemId;
-import com.shop.ordering.domain.model.product.ProductId;
+import com.shop.ordering.core.domain.model.commons.*;
+import com.shop.ordering.core.domain.model.order.*;
+import com.shop.ordering.core.domain.model.product.ProductName;
+import com.shop.ordering.core.domain.model.customer.CustomerId;
+import com.shop.ordering.core.domain.model.product.ProductId;
 import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
 import org.springframework.stereotype.Component;
 

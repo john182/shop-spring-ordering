@@ -1,16 +1,16 @@
 package com.shop.ordering.presentation.order;
 
-import com.shop.ordering.application.checkout.BuyNowApplicationService;
-import com.shop.ordering.application.checkout.BuyNowInput;
-import com.shop.ordering.application.checkout.CheckoutApplicationService;
-import com.shop.ordering.application.checkout.CheckoutInput;
-import com.shop.ordering.application.order.query.OrderDetailOutput;
-import com.shop.ordering.application.order.query.OrderFilter;
-import com.shop.ordering.application.order.query.OrderQueryService;
-import com.shop.ordering.application.order.query.OrderSummaryOutput;
-import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
-import com.shop.ordering.domain.model.product.ProductNotFoundException;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCartNotFoundException;
+import com.shop.ordering.core.application.checkout.BuyNowApplicationService;
+import com.shop.ordering.core.application.checkout.BuyNowInput;
+import com.shop.ordering.core.application.checkout.CheckoutApplicationService;
+import com.shop.ordering.core.application.checkout.CheckoutInput;
+import com.shop.ordering.core.application.order.query.OrderDetailOutput;
+import com.shop.ordering.core.application.order.query.OrderFilter;
+import com.shop.ordering.core.application.order.query.OrderQueryService;
+import com.shop.ordering.core.application.order.query.OrderSummaryOutput;
+import com.shop.ordering.core.domain.model.customer.CustomerNotFoundException;
+import com.shop.ordering.core.domain.model.product.ProductNotFoundException;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartNotFoundException;
 import com.shop.ordering.presentation.PageModel;
 import com.shop.ordering.presentation.UnprocessableEntityException;
 import jakarta.validation.Valid;

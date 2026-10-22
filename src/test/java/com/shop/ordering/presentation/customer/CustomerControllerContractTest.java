@@ -1,13 +1,13 @@
 package com.shop.ordering.presentation.customer;
 
-import com.shop.ordering.application.commons.AddressData;
-import com.shop.ordering.application.customer.management.CustomerInput;
-import com.shop.ordering.application.customer.management.CustomerManagementApplicationService;
-import com.shop.ordering.application.customer.query.*;
-import com.shop.ordering.application.shoppingcart.query.ShoppingCartQueryService;
-import com.shop.ordering.domain.model.DomainException;
-import com.shop.ordering.domain.model.customer.CustomerEmailIsInUseException;
-import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
+import com.shop.ordering.core.application.commons.AddressData;
+import com.shop.ordering.core.application.customer.management.CustomerInput;
+import com.shop.ordering.core.application.customer.management.CustomerManagementApplicationService;
+import com.shop.ordering.core.application.customer.query.*;
+import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartQueryService;
+import com.shop.ordering.core.domain.model.DomainException;
+import com.shop.ordering.core.domain.model.customer.CustomerEmailIsInUseException;
+import com.shop.ordering.core.domain.model.customer.CustomerNotFoundException;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,13 +1,10 @@
 package com.shop.ordering.infrastructure.persistence.customer;
 
-import com.shop.ordering.application.customer.query.CustomerFilter;
-import com.shop.ordering.application.customer.query.CustomerOutput;
-import com.shop.ordering.application.customer.query.CustomerQueryService;
-import com.shop.ordering.application.customer.query.CustomerSummaryOutput;
-import com.shop.ordering.application.order.query.CustomerMinimalOutput;
-import com.shop.ordering.application.order.query.OrderSummaryOutput;
-import com.shop.ordering.domain.model.customer.CustomerNotFoundException;
-import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntity;
+import com.shop.ordering.core.application.customer.query.CustomerFilter;
+import com.shop.ordering.core.application.customer.query.CustomerOutput;
+import com.shop.ordering.core.application.customer.query.CustomerQueryService;
+import com.shop.ordering.core.application.customer.query.CustomerSummaryOutput;
+import com.shop.ordering.core.domain.model.customer.CustomerNotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
@@ -32,7 +29,7 @@ public class CustomerQueryServiceImpl implements CustomerQueryService {
     private final EntityManager entityManager;
 
     private static final String findByIdAsOutputJPQL = """
-            SELECT new com.shop.ordering.application.customer.query.CustomerOutput(
+            SELECT new com.shop.ordering.core.application.customer.query.CustomerOutput(
                 c.id,
                 c.firstName,
                 c.lastName,
@@ -45,7 +42,7 @@ public class CustomerQueryServiceImpl implements CustomerQueryService {
                 c.archivedAt,
                 c.promotionNotificationsAllowed,
                 c.archived,
-                new com.shop.ordering.application.commons.AddressData(
+                new com.shop.ordering.core.application.commons.AddressData(
                     c.address.street,
                     c.address.number,
                     c.address.complement,

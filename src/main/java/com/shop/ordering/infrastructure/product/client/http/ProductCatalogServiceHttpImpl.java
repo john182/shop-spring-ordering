@@ -1,10 +1,10 @@
 package com.shop.ordering.infrastructure.product.client.http;
 
-import com.shop.ordering.domain.model.commons.Money;
-import com.shop.ordering.domain.model.product.Product;
-import com.shop.ordering.domain.model.product.ProductCatalogService;
-import com.shop.ordering.domain.model.product.ProductId;
-import com.shop.ordering.domain.model.product.ProductName;
+import com.shop.ordering.core.domain.model.commons.Money;
+import com.shop.ordering.core.domain.model.product.Product;
+import com.shop.ordering.core.domain.model.product.ProductCatalogService;
+import com.shop.ordering.core.domain.model.product.ProductId;
+import com.shop.ordering.core.domain.model.product.ProductName;
 import com.shop.ordering.presentation.BadGatewayException;
 import com.shop.ordering.presentation.GatewayTimeoutException;
 import lombok.RequiredArgsConstructor;

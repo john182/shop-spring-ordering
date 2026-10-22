@@ -1,9 +1,9 @@
 package com.shop.ordering.infrastructure.persistence.customer;
 
-import com.shop.ordering.domain.model.customer.Customer;
-import com.shop.ordering.domain.model.customer.Customers;
-import com.shop.ordering.domain.model.commons.Email;
-import com.shop.ordering.domain.model.customer.CustomerId;
+import com.shop.ordering.core.domain.model.customer.Customer;
+import com.shop.ordering.core.domain.model.customer.Customers;
+import com.shop.ordering.core.domain.model.commons.Email;
+import com.shop.ordering.core.domain.model.customer.CustomerId;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

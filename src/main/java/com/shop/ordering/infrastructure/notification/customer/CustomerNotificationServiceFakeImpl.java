@@ -1,7 +1,7 @@
 package com.shop.ordering.infrastructure.notification.customer;
 
-import com.shop.ordering.application.customer.notification.CustomerNotificationApplicationService;
-import com.shop.ordering.domain.model.customer.Customers;
+import com.shop.ordering.core.application.customer.notification.CustomerNotificationApplicationService;
+import com.shop.ordering.core.domain.model.customer.Customers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
 package com.shop.ordering.infrastructure.persistence.repository;
 
-import com.shop.ordering.domain.model.customer.CustomerPersistenceEntityTestDataBuilder;
-import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
-import com.shop.ordering.domain.model.entity.OrderPersistenceEntityTestDataBuilder;
+import com.shop.ordering.core.domain.model.customer.CustomerPersistenceEntityTestDataBuilder;
+import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
+import com.shop.ordering.core.domain.model.entity.OrderPersistenceEntityTestDataBuilder;
 import com.shop.ordering.infrastructure.persistence.SpringDataAuditingConfig;
 import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
 import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;

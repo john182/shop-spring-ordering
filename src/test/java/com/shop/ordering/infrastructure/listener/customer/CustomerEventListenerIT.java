@@ -1,14 +1,14 @@
 package com.shop.ordering.infrastructure.listener.customer;
 
-import com.shop.ordering.application.customer.loyaltypoints.CustomerLoyaltyPointsApplicationService;
-import com.shop.ordering.application.customer.notification.CustomerNotificationApplicationService;
-import com.shop.ordering.application.customer.notification.CustomerNotificationApplicationService.NotifyNewRegistrationInput;
-import com.shop.ordering.domain.model.commons.Email;
-import com.shop.ordering.domain.model.commons.FullName;
-import com.shop.ordering.domain.model.customer.CustomerId;
-import com.shop.ordering.domain.model.customer.CustomerRegisteredEvent;
-import com.shop.ordering.domain.model.order.OrderId;
-import com.shop.ordering.domain.model.order.OrderReadyEvent;
+import com.shop.ordering.core.application.customer.loyaltypoints.CustomerLoyaltyPointsApplicationService;
+import com.shop.ordering.core.application.customer.notification.CustomerNotificationApplicationService;
+import com.shop.ordering.core.application.customer.notification.CustomerNotificationApplicationService.NotifyNewRegistrationInput;
+import com.shop.ordering.core.domain.model.commons.Email;
+import com.shop.ordering.core.domain.model.commons.FullName;
+import com.shop.ordering.core.domain.model.customer.CustomerId;
+import com.shop.ordering.core.domain.model.customer.CustomerRegisteredEvent;
+import com.shop.ordering.core.domain.model.order.OrderId;
+import com.shop.ordering.core.domain.model.order.OrderReadyEvent;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

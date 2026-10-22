@@ -1,9 +1,9 @@
 package com.shop.ordering.infrastructure.persistence.shoppingcart;
 
-import com.shop.ordering.application.shoppingcart.query.ShoppingCartOutput;
-import com.shop.ordering.application.shoppingcart.query.ShoppingCartQueryService;
-import com.shop.ordering.application.utility.Mapper;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCartNotFoundException;
+import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartOutput;
+import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartQueryService;
+import com.shop.ordering.core.application.utility.Mapper;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

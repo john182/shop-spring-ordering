@@ -1,10 +1,10 @@
 package com.shop.ordering.infrastructure.persistence.provider;
 
-import com.shop.ordering.domain.model.customer.Customer;
-import com.shop.ordering.domain.model.customer.CustomerTestDataBuilder;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCart;
-import com.shop.ordering.domain.model.entity.ShoppingCartTestDataBuilder;
-import com.shop.ordering.domain.model.customer.CustomerId;
+import com.shop.ordering.core.domain.model.customer.Customer;
+import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCart;
+import com.shop.ordering.core.domain.model.entity.ShoppingCartTestDataBuilder;
+import com.shop.ordering.core.domain.model.customer.CustomerId;
 import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityAssembler;
 import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityAssembler;
 import com.shop.ordering.infrastructure.persistence.SpringDataAuditingConfig;

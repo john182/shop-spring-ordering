@@ -1,10 +1,9 @@
 package com.shop.ordering.infrastructure.persistence.order;
 
-import com.shop.ordering.application.order.query.*;
-import com.shop.ordering.application.utility.Mapper;
-import com.shop.ordering.application.utility.PageFilter;
-import com.shop.ordering.domain.model.order.OrderId;
-import com.shop.ordering.domain.model.order.OrderNotFoundException;
+import com.shop.ordering.core.application.order.query.*;
+import com.shop.ordering.core.application.utility.Mapper;
+import com.shop.ordering.core.domain.model.order.OrderId;
+import com.shop.ordering.core.domain.model.order.OrderNotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;

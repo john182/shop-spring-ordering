@@ -1,34 +1,23 @@
 package com.shop.ordering.presentation.order;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.extension.responsetemplating.ResponseTemplateTransformer;
-import com.shop.ordering.application.checkout.BuyNowInput;
-import com.shop.ordering.application.checkout.BuyNowInputTestDataBuilder;
-import com.shop.ordering.application.order.query.OrderDetailOutput;
-import com.shop.ordering.domain.model.order.OrderId;
+import com.shop.ordering.core.application.checkout.BuyNowInput;
+import com.shop.ordering.core.application.checkout.BuyNowInputTestDataBuilder;
+import com.shop.ordering.core.application.order.query.OrderDetailOutput;
+import com.shop.ordering.core.domain.model.order.OrderId;
 import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;
-import com.shop.ordering.infrastructure.persistence.entity.CustomerPersistenceEntityTestDataBuilder;
 import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityRepository;
 import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
 import com.shop.ordering.presentation.AbstractPresentationIT;
 import com.shop.ordering.utils.ResourceUtils;
 import io.restassured.RestAssured;
-import io.restassured.path.json.config.JsonPathConfig;
 import org.assertj.core.api.Assertions;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.jdbc.Sql;
 
 import java.util.UUID;
-
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static com.shop.ordering.infrastructure.persistence.entity.ShoppingCartPersistenceEntityTestDataBuilder.existingShoppingCart;
-import static io.restassured.config.JsonConfig.jsonConfig;
 
 
 public class OrderControllerIT extends AbstractPresentationIT {

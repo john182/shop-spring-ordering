@@ -1,8 +1,8 @@
 package com.shop.ordering.infrastructure.persistence.shoppingcart;
 
-import com.shop.ordering.domain.model.commons.Money;
-import com.shop.ordering.domain.model.product.ProductId;
-import com.shop.ordering.domain.model.shoppingcart.ShoppingCartProductAdjustmentService;
+import com.shop.ordering.core.domain.model.commons.Money;
+import com.shop.ordering.core.domain.model.product.ProductId;
+import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartProductAdjustmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
