@@ -1,4 +1,4 @@
-package com.shop.ordering.core.application.shoppingcart.management;
+package com.shop.ordering.core.ports.in.shoppingcart;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,6 @@
 package com.shop.ordering.presentation.shoppingcart;
 
-import com.shop.ordering.core.application.shoppingcart.management.ShoppingCartItemInput;
+import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartItemInput;
 import com.shop.ordering.core.application.shoppingcart.management.ShoppingCartManagementApplicationService;
 import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartOutput;
 import com.shop.ordering.core.application.shoppingcart.query.ShoppingCartQueryService;
