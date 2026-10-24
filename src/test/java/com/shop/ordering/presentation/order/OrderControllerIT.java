@@ -1,11 +1,11 @@
 package com.shop.ordering.presentation.order;
 
-import com.shop.ordering.core.application.checkout.BuyNowInput;
+import com.shop.ordering.core.ports.in.checkout.BuyNowInput;
 import com.shop.ordering.core.application.checkout.BuyNowInputTestDataBuilder;
-import com.shop.ordering.core.application.order.query.OrderDetailOutput;
+import com.shop.ordering.core.ports.out.order.OrderDetailOutput;
 import com.shop.ordering.core.domain.model.order.OrderId;
 import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntityRepository;
-import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.adapters.out.persistence.order.OrderPersistenceEntityRepository;
 import com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
 import com.shop.ordering.presentation.AbstractPresentationIT;
 import com.shop.ordering.utils.ResourceUtils;

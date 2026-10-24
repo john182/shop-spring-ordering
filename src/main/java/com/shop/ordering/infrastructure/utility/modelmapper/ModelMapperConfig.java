@@ -1,14 +1,14 @@
 package com.shop.ordering.infrastructure.utility.modelmapper;
 
 import com.shop.ordering.core.ports.in.customer.CustomerOutput;
-import com.shop.ordering.core.application.order.query.OrderDetailOutput;
-import com.shop.ordering.core.application.order.query.OrderItemDetailOutput;
+import com.shop.ordering.core.ports.out.order.OrderDetailOutput;
+import com.shop.ordering.core.ports.out.order.OrderItemDetailOutput;
 import com.shop.ordering.core.application.utility.Mapper;
 import com.shop.ordering.core.domain.model.commons.FullName;
 import com.shop.ordering.core.domain.model.customer.BirthDate;
 import com.shop.ordering.core.domain.model.customer.Customer;
-import com.shop.ordering.infrastructure.persistence.order.OrderItemPersistenceEntity;
-import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntity;
+import com.shop.ordering.infrastructure.adapters.out.persistence.order.OrderItemPersistenceEntity;
+import com.shop.ordering.infrastructure.adapters.out.persistence.order.OrderPersistenceEntity;
 import io.hypersistence.tsid.TSID;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;

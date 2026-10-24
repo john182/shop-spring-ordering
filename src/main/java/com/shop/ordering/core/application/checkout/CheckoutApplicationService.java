@@ -1,5 +1,7 @@
 package com.shop.ordering.core.application.checkout;
 
+import com.shop.ordering.core.application.order.BillingInputDisassembler;
+import com.shop.ordering.core.application.order.ShippingInputDisassembler;
 import com.shop.ordering.core.domain.model.DomainException;
 import com.shop.ordering.core.domain.model.commons.ZipCode;
 import com.shop.ordering.core.domain.model.customer.Customer;
@@ -16,6 +18,9 @@ import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCart;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartId;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartNotFoundException;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCarts;
+import com.shop.ordering.core.ports.in.checkout.CheckoutInput;
+import com.shop.ordering.core.ports.in.checkout.ForBuyingWithShoppingCart;
+import com.shop.ordering.core.ports.in.order.ShippingInput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +29,7 @@ import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
-public class CheckoutApplicationService {
+public class CheckoutApplicationService implements ForBuyingWithShoppingCart {
 
 	private final Orders orders;
 	private final ShoppingCarts shoppingCarts;
@@ -57,7 +62,7 @@ public class CheckoutApplicationService {
 		ShoppingCart shoppingCart = shoppingCarts.ofId(shoppingCartId)
 				.orElseThrow(() -> new ShoppingCartNotFoundException(shoppingCartId.value()));
 
-		Customer customer = customers.ofId(shoppingCart.customerId()).orElseThrow(CustomerNotFoundException::new);
+		Customer customer = customers.ofId(shoppingCart.customerId()).orElseThrow(() -> new CustomerNotFoundException());
 
 		var shippingCalculationResult = calculateShippingCost(input.getShipping());
 
@@ -80,7 +85,7 @@ public class CheckoutApplicationService {
 
 	private Product findProduct(ProductId productId) {
 		return productCatalogService.ofId(productId)
-				.orElseThrow(ProductNotFoundException::new);
+				.orElseThrow(()-> new ProductNotFoundException());
 	}
 
 }

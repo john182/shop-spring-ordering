@@ -1,8 +1,10 @@
 package com.shop.ordering.core.application.checkout;
 
+import com.shop.ordering.core.ports.in.checkout.CheckoutInput;
 import com.shop.ordering.core.ports.in.commons.AddressData;
-import com.shop.ordering.core.application.order.query.BillingData;
-import com.shop.ordering.core.application.order.query.RecipientData;
+import com.shop.ordering.core.ports.in.order.BillingData;
+import com.shop.ordering.core.ports.in.order.RecipientData;
+import com.shop.ordering.core.ports.in.order.ShippingInput;
 
 import java.util.UUID;
 

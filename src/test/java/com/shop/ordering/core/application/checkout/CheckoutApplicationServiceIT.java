@@ -14,6 +14,7 @@ import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCart;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartCantProceedToCheckoutException;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartNotFoundException;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCarts;
+import com.shop.ordering.core.ports.in.checkout.CheckoutInput;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -9,6 +9,7 @@ import com.shop.ordering.core.domain.model.order.Orders;
 import com.shop.ordering.core.domain.model.order.shipping.ShippingCostService;
 import com.shop.ordering.core.domain.model.product.Product;
 import com.shop.ordering.core.domain.model.product.ProductCatalogService;
+import com.shop.ordering.core.ports.in.checkout.BuyNowInput;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,7 @@
 package com.shop.ordering.core.application.order.query;
 
 
+import com.shop.ordering.core.application.order.OrderQueryService;
 import com.shop.ordering.core.domain.model.customer.Customer;
 import com.shop.ordering.core.domain.model.customer.CustomerId;
 import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
@@ -9,6 +10,9 @@ import com.shop.ordering.core.domain.model.order.Order;
 import com.shop.ordering.core.domain.model.order.OrderStatus;
 import com.shop.ordering.core.domain.model.order.OrderTestDataBuilder;
 import com.shop.ordering.core.domain.model.order.Orders;
+import com.shop.ordering.core.ports.in.order.OrderFilter;
+import com.shop.ordering.core.ports.out.order.OrderDetailOutput;
+import com.shop.ordering.core.ports.out.order.OrderSummaryOutput;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

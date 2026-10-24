@@ -1,9 +1,9 @@
 package com.shop.ordering.contract.base;
 
 import com.shop.ordering.core.application.order.query.OrderDetailOutputTestDataBuilder;
-import com.shop.ordering.core.application.order.query.OrderQueryService;
+import com.shop.ordering.core.application.order.OrderQueryService;
 import com.shop.ordering.core.domain.model.order.OrderNotFoundException;
-import com.shop.ordering.presentation.order.OrderController;
+import com.shop.ordering.infrastructure.adapters.in.web.order.OrderController;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
