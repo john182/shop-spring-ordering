@@ -1,4 +1,4 @@
-package com.shop.ordering.presentation.shoppingcart;
+package com.shop.ordering.infrastructure.adapters.in.web.shoppingcart;
 
 import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartItemOutput;
 import lombok.AllArgsConstructor;

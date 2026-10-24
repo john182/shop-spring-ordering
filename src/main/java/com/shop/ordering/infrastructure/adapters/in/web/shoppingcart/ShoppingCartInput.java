@@ -1,4 +1,4 @@
-package com.shop.ordering.presentation.shoppingcart;
+package com.shop.ordering.infrastructure.adapters.in.web.shoppingcart;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
