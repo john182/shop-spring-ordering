@@ -1,14 +1,15 @@
 package com.shop.ordering.infrastructure.listener.customer;
 
-import com.shop.ordering.core.application.customer.loyaltypoints.CustomerLoyaltyPointsApplicationService;
-import com.shop.ordering.core.application.customer.notification.CustomerNotificationApplicationService;
-import com.shop.ordering.core.application.customer.notification.CustomerNotificationApplicationService.NotifyNewRegistrationInput;
+import com.shop.ordering.core.application.customer.CustomerLoyaltyPointsApplicationService;
+import com.shop.ordering.core.ports.out.customer.ForNotifyingCustomers;
+import com.shop.ordering.core.ports.out.customer.ForNotifyingCustomers.NotifyNewRegistrationInput;
 import com.shop.ordering.core.domain.model.commons.Email;
 import com.shop.ordering.core.domain.model.commons.FullName;
 import com.shop.ordering.core.domain.model.customer.CustomerId;
 import com.shop.ordering.core.domain.model.customer.CustomerRegisteredEvent;
 import com.shop.ordering.core.domain.model.order.OrderId;
 import com.shop.ordering.core.domain.model.order.OrderReadyEvent;
+import com.shop.ordering.infrastructure.adapters.in.listener.customer.CustomerEventListener;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ class CustomerEventListenerIT {
     private CustomerLoyaltyPointsApplicationService loyaltyPointsApplicationService;
 
     @MockitoSpyBean
-    private CustomerNotificationApplicationService notificationApplicationService;
+    private ForNotifyingCustomers notificationApplicationService;
 
     @Test
     public void shouldListenOrderReadyEvent() {

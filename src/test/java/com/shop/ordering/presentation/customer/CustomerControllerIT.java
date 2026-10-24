@@ -1,6 +1,6 @@
 package com.shop.ordering.presentation.customer;
 
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntityRepository;
 import com.shop.ordering.infrastructure.persistence.entity.CustomerPersistenceEntityTestDataBuilder;
 import com.shop.ordering.utils.ResourceUtils;
 import io.restassured.RestAssured;

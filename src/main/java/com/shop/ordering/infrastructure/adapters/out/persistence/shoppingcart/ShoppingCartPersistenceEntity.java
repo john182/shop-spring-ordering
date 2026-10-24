@@ -1,6 +1,6 @@
 package com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart;
 
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedBy;

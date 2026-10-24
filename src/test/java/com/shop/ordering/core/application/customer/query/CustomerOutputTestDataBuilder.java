@@ -1,7 +1,7 @@
 package com.shop.ordering.core.application.customer.query;
 
-import com.shop.ordering.core.application.commons.AddressData;
-import com.shop.ordering.core.application.customer.query.CustomerOutput;
+import com.shop.ordering.core.ports.in.commons.AddressData;
+import com.shop.ordering.core.ports.in.customer.CustomerOutput;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;

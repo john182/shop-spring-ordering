@@ -1,6 +1,6 @@
 package com.shop.ordering.infrastructure.persistence.entity;
 
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntity;
 import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
 
 import java.time.LocalDate;

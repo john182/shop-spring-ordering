@@ -1,7 +1,7 @@
 package com.shop.ordering.core.application.customer.management;
 
-import com.shop.ordering.core.application.commons.AddressData;
-import com.shop.ordering.core.application.customer.management.CustomerUpdateInput;
+import com.shop.ordering.core.ports.in.commons.AddressData;
+import com.shop.ordering.core.ports.in.customer.CustomerUpdateInput;
 
 public class CustomerUpdateInputTestDataBuilder {
 

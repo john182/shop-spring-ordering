@@ -2,9 +2,9 @@ package com.shop.ordering.core.domain.model.customer;
 
 import com.shop.ordering.core.domain.model.commons.Email;
 import com.shop.ordering.core.domain.model.commons.FullName;
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityAssembler;
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityDisassembler;
-import com.shop.ordering.infrastructure.persistence.customer.CustomersPersistenceProvider;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntityAssembler;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntityDisassembler;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomersPersistenceProvider;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

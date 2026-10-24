@@ -7,7 +7,7 @@ import com.shop.ordering.core.domain.model.order.Billing;
 import com.shop.ordering.core.domain.model.order.Recipient;
 import com.shop.ordering.core.domain.model.order.Shipping;
 import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

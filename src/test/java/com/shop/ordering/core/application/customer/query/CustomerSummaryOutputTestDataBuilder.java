@@ -1,6 +1,6 @@
 package com.shop.ordering.core.application.customer.query;
 
-import com.shop.ordering.core.application.customer.query.CustomerSummaryOutput;
+import com.shop.ordering.core.ports.in.customer.CustomerSummaryOutput;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;

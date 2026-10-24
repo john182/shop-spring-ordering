@@ -13,7 +13,7 @@ import com.shop.ordering.core.domain.model.commons.Quantity;
 import com.shop.ordering.core.domain.model.shoppingcart.*;
 import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.core.domain.model.product.ProductTestDataBuilder;
-import com.shop.ordering.infrastructure.listener.shoppingcart.ShoppingCartEventListener;
+import com.shop.ordering.infrastructure.adapters.in.listener.shoppingcart.ShoppingCartEventListener;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

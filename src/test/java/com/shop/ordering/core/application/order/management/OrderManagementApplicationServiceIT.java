@@ -4,7 +4,7 @@ import com.shop.ordering.core.domain.model.customer.Customers;
 import com.shop.ordering.core.domain.model.order.*;
 import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.core.domain.model.order.OrderTestDataBuilder;
-import com.shop.ordering.infrastructure.listener.order.OrderEventListener;
+import com.shop.ordering.infrastructure.adapters.in.listener.order.OrderEventListener;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

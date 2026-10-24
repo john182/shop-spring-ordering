@@ -1,5 +1,6 @@
 package com.shop.ordering.core.application.customer.loyaltypoints;
 
+import com.shop.ordering.core.application.customer.CustomerLoyaltyPointsApplicationService;
 import com.shop.ordering.core.domain.model.commons.Email;
 import com.shop.ordering.core.domain.model.commons.Money;
 import com.shop.ordering.core.domain.model.commons.Quantity;
@@ -9,7 +10,7 @@ import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.core.domain.model.entity.ProductTestDataBuilder;
 import com.shop.ordering.core.domain.model.order.OrderTestDataBuilder;
 import com.shop.ordering.core.domain.model.product.Product;
-import com.shop.ordering.infrastructure.listener.customer.CustomerEventListener;
+import com.shop.ordering.infrastructure.adapters.in.listener.customer.CustomerEventListener;
 import io.hypersistence.tsid.TSID;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

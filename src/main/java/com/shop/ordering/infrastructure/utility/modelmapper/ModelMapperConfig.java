@@ -1,6 +1,6 @@
 package com.shop.ordering.infrastructure.utility.modelmapper;
 
-import com.shop.ordering.core.application.customer.query.CustomerOutput;
+import com.shop.ordering.core.ports.in.customer.CustomerOutput;
 import com.shop.ordering.core.application.order.query.OrderDetailOutput;
 import com.shop.ordering.core.application.order.query.OrderItemDetailOutput;
 import com.shop.ordering.core.application.utility.Mapper;

@@ -1,7 +1,6 @@
 package com.shop.ordering.core.application.order.query;
 
-import com.shop.ordering.core.application.commons.AddressData;
-import com.shop.ordering.core.application.order.query.*;
+import com.shop.ordering.core.ports.in.commons.AddressData;
 import com.shop.ordering.core.domain.model.customer.CustomerId;
 import com.shop.ordering.core.domain.model.order.OrderId;
 import com.shop.ordering.core.domain.model.order.OrderItemId;

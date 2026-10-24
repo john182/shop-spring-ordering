@@ -1,13 +1,14 @@
 package com.shop.ordering.presentation.customer;
 
-import com.shop.ordering.core.application.commons.AddressData;
-import com.shop.ordering.core.application.customer.management.CustomerInput;
-import com.shop.ordering.core.application.customer.management.CustomerManagementApplicationService;
+import com.shop.ordering.core.ports.in.commons.AddressData;
+import com.shop.ordering.core.ports.in.customer.*;
+import com.shop.ordering.core.application.customer.CustomerManagementApplicationService;
 import com.shop.ordering.core.application.customer.query.*;
 import com.shop.ordering.core.application.shoppingcart.ShoppingCartQueryService;
 import com.shop.ordering.core.domain.model.DomainException;
 import com.shop.ordering.core.domain.model.customer.CustomerEmailIsInUseException;
 import com.shop.ordering.core.domain.model.customer.CustomerNotFoundException;
+import com.shop.ordering.infrastructure.adapters.in.web.customer.CustomerController;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,7 +38,7 @@ class CustomerControllerContractTest {
     private CustomerManagementApplicationService customerManagementApplicationService;
 
     @MockitoBean
-    private CustomerQueryService customerQueryService;
+    private ForQueryingCustomers customerQueryService;
 
     @MockitoBean
     private ShoppingCartQueryService shoppingCartQueryService;

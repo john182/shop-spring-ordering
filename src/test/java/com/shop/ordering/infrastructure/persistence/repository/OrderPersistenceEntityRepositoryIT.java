@@ -4,8 +4,8 @@ import com.shop.ordering.core.domain.model.customer.CustomerPersistenceEntityTes
 import com.shop.ordering.core.domain.model.customer.CustomerTestDataBuilder;
 import com.shop.ordering.core.domain.model.entity.OrderPersistenceEntityTestDataBuilder;
 import com.shop.ordering.infrastructure.persistence.SpringDataAuditingConfig;
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
-import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntity;
+import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntityRepository;
 import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntity;
 import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityRepository;
 import org.assertj.core.api.Assertions;
