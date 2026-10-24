@@ -1,4 +1,4 @@
-package com.shop.ordering.infrastructure.persistence.shoppingcart;
+package com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

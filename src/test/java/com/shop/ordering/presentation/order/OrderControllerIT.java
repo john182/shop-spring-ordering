@@ -6,7 +6,7 @@ import com.shop.ordering.core.application.order.query.OrderDetailOutput;
 import com.shop.ordering.core.domain.model.order.OrderId;
 import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;
 import com.shop.ordering.infrastructure.persistence.order.OrderPersistenceEntityRepository;
-import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
 import com.shop.ordering.presentation.AbstractPresentationIT;
 import com.shop.ordering.utils.ResourceUtils;
 import io.restassured.RestAssured;

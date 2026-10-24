@@ -1,7 +1,7 @@
 package com.shop.ordering.presentation.shoppincart;
 
 import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntityRepository;
-import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
+import com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart.ShoppingCartPersistenceEntityRepository;
 import com.shop.ordering.presentation.AbstractPresentationIT;
 import com.shop.ordering.utils.ResourceUtils;
 import io.restassured.RestAssured;

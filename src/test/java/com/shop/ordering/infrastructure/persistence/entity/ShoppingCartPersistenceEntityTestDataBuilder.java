@@ -1,9 +1,9 @@
 package com.shop.ordering.infrastructure.persistence.entity;
 
 import com.shop.ordering.core.domain.model.IdGenerator;
-import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartItemPersistenceEntity;
-import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntity;
-import com.shop.ordering.infrastructure.persistence.shoppingcart.ShoppingCartPersistenceEntity.ShoppingCartPersistenceEntityBuilder;
+import com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart.ShoppingCartItemPersistenceEntity;
+import com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart.ShoppingCartPersistenceEntity;
+import com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart.ShoppingCartPersistenceEntity.ShoppingCartPersistenceEntityBuilder;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;

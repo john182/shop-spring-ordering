@@ -1,4 +1,4 @@
-package com.shop.ordering.infrastructure.persistence.shoppingcart;
+package com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart;
 
 import com.shop.ordering.core.domain.model.commons.Money;
 import com.shop.ordering.core.domain.model.product.ProductId;

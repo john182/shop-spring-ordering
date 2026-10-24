@@ -1,19 +1,19 @@
-package com.shop.ordering.infrastructure.persistence.shoppingcart;
+package com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart;
 
 import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartOutput;
 import com.shop.ordering.core.application.utility.Mapper;
 import com.shop.ordering.core.domain.model.shoppingcart.ShoppingCartNotFoundException;
 import com.shop.ordering.core.ports.out.shoppingcart.ForObtainingShoppingCarts;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
-@Service
+@Component
 @RequiredArgsConstructor
 @Transactional
-public class ShoppingCartQueryServiceImpl implements ForObtainingShoppingCarts {
+public class ForObtainingShoppingCartsJpaRepositoryImpl implements ForObtainingShoppingCarts {
 
     private final ShoppingCartPersistenceEntityRepository persistenceRepository;
     private final Mapper mapper;

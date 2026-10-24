@@ -1,4 +1,4 @@
-package com.shop.ordering.infrastructure.persistence.shoppingcart;
+package com.shop.ordering.infrastructure.adapters.out.persistence.shoppingcart;
 
 import com.shop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
 import jakarta.persistence.*;
