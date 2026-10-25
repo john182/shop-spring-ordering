@@ -6,7 +6,7 @@ import com.shop.ordering.core.ports.in.shoppingcart.ForManagingShoppingCarts;
 import com.shop.ordering.core.ports.in.shoppingcart.ForQueryingShoppingCarts;
 import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartItemInput;
 import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartOutput;
-import com.shop.ordering.presentation.UnprocessableEntityException;
+import com.shop.ordering.infrastructure.adapters.in.web.exceptionhandler.UnprocessableEntityException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,11 +1,9 @@
 package com.shop.ordering.infrastructure.adapters.in.web.customer;
 
 import com.shop.ordering.core.ports.in.customer.*;
-import com.shop.ordering.core.application.customer.CustomerManagementApplicationService;
-import com.shop.ordering.core.application.shoppingcart.ShoppingCartQueryService;
 import com.shop.ordering.core.ports.in.shoppingcart.ForQueryingShoppingCarts;
 import com.shop.ordering.core.ports.in.shoppingcart.ShoppingCartOutput;
-import com.shop.ordering.presentation.PageModel;
+import com.shop.ordering.infrastructure.adapters.in.web.PageModel;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

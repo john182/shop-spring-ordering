@@ -1,7 +1,7 @@
 package com.shop.ordering.presentation.customer;
 
 import com.shop.ordering.infrastructure.adapters.out.persistence.customer.CustomerPersistenceEntityRepository;
-import com.shop.ordering.infrastructure.persistence.entity.CustomerPersistenceEntityTestDataBuilder;
+import com.shop.ordering.infrastructure.auditing.entity.CustomerPersistenceEntityTestDataBuilder;
 import com.shop.ordering.utils.ResourceUtils;
 import io.restassured.RestAssured;
 import io.restassured.path.json.config.JsonPathConfig;

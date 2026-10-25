@@ -5,7 +5,7 @@ import com.shop.ordering.core.domain.model.customer.BirthDate;
 import com.shop.ordering.core.domain.model.customer.Customer;
 import com.shop.ordering.core.domain.model.customer.LoyaltyPoints;
 import com.shop.ordering.core.domain.model.customer.CustomerId;
-import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
+import com.shop.ordering.infrastructure.adapters.out.persistence.commons.AddressEmbeddable;
 import org.springframework.stereotype.Component;
 
 @Component

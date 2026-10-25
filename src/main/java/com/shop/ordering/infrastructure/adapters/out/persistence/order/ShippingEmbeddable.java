@@ -1,6 +1,6 @@
 package com.shop.ordering.infrastructure.adapters.out.persistence.order;
 
-import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
+import com.shop.ordering.infrastructure.adapters.out.persistence.commons.AddressEmbeddable;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;

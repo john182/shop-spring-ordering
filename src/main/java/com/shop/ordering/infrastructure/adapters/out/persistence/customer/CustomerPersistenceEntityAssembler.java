@@ -2,7 +2,7 @@ package com.shop.ordering.infrastructure.adapters.out.persistence.customer;
 
 import com.shop.ordering.core.domain.model.customer.Customer;
 import com.shop.ordering.core.domain.model.commons.Address;
-import com.shop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
+import com.shop.ordering.infrastructure.adapters.out.persistence.commons.AddressEmbeddable;
 import org.springframework.stereotype.Component;
 
 @Component
